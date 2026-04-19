@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_05_fossil_reduce.xml
+     Current Measures: Reduce Pakistan fossil fuel share-weights to match 2025 gen targets.
+     ITERATION 2 — aggressive tuning based on v2 gap analysis.
+     CONTEXT (v2 gaps):
+       Coal:  target 2.345 GWa, CM got 3.747 (+60% OVER) → need ~0.35 (was 0.6)
+       Gas:   target 4.955 GWa, CM got 6.420 (+30% OVER) → need ~0.55 (was 0.72)
+       Oil:   target 0.341 GWa, CM got 1.780 (+423% OVER) → need ~0.04 (was 0.18)
+     METHOD: Reduce harder. Proportional: new_sw = target/cm_value × old_sw.
+     RISK: More aggressive fossil reduction. If model fails, relax Oil first → Coal → Gas.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <!-- COAL: 0.6 → 0.35. CM got +60% over target, need ~42% more reduction -->
+        <subsector name="coal" nocreate="1">
+          <share-weight year="2025">0.35</share-weight>
+          <share-weight year="2030">0.30</share-weight>
+          <share-weight year="2035">0.25</share-weight>
+          <share-weight year="2040">0.20</share-weight>
+          <share-weight year="2045">0.15</share-weight>
+          <share-weight fillout="1" year="2050">0.10</share-weight>
+        </subsector>
+        <!-- GAS: 0.72 → 0.55. CM got +30% over target -->
+        <subsector name="gas" nocreate="1">
+          <share-weight year="2025">0.55</share-weight>
+          <share-weight year="2030">0.50</share-weight>
+          <share-weight year="2035">0.45</share-weight>
+          <share-weight year="2040">0.40</share-weight>
+          <share-weight year="2045">0.35</share-weight>
+          <share-weight fillout="1" year="2050">0.30</share-weight>
+        </subsector>
+        <!-- REFINED LIQUIDS (Oil/RFO): 0.18 → 0.04. CM got +423% over target -->
+        <subsector name="refined liquids" nocreate="1">
+          <share-weight year="2025">0.04</share-weight>
+          <share-weight year="2030">0.03</share-weight>
+          <share-weight year="2035">0.02</share-weight>
+          <share-weight year="2040">0.02</share-weight>
+          <share-weight year="2045">0.01</share-weight>
+          <share-weight fillout="1" year="2050">0.01</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_03_wind.xml
+     Current Measures: Reduce Pakistan wind subsector share-weight.
+     ITERATION 2 — aggressive tuning based on v2 gap analysis.
+     CONTEXT: Wind gen target = 0.450 GWa. CM got 0.580 GWa (+29% OVER).
+              Ratio: 0.450/0.580 × 0.6 = 0.47 → going 0.45.
+     METHOD: Reduce wind share-weight harder in 2025, allow gradual recovery.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="wind" nocreate="1">
+          <share-weight year="2025">0.45</share-weight>
+          <share-weight year="2030">0.6</share-weight>
+          <share-weight year="2035">0.8</share-weight>
+          <share-weight fillout="1" year="2040">1.0</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

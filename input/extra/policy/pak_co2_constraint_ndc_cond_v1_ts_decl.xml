@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_co2_constraint_ndc_cond_v1_ts_decl.xml
+     Time-series declining multiplier variant.
+     NDCC: 0.50(2030) -> 0.50(2035) -> 0.48(2040) -> 0.45(2045) -> 0.43(2050+).
+     Each period: mult x CM_period x 12/44.
+     Generated 2026-04-17. -->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="CO2">
+                <market>Pakistan</market>
+                <constraint year="2030">39.408</constraint>
+                <constraint year="2035">46.825</constraint>
+                <constraint year="2040">54.253</constraint>
+                <constraint year="2045">61.799</constraint>
+                <constraint year="2050">69.911</constraint>
+                <constraint year="2055">80.313</constraint>
+                <constraint year="2060">94.234</constraint>
+                <constraint year="2065">109.111</constraint>
+                <constraint year="2070">124.523</constraint>
+                <constraint year="2075">139.695</constraint>
+                <constraint year="2080">153.677</constraint>
+                <constraint year="2085">165.737</constraint>
+                <constraint year="2090">177.443</constraint>
+                <constraint year="2095">188.500</constraint>
+                <constraint year="2100">198.887</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_06_bio_v1.xml
+     Current Measures v1: Pakistan biomass subsector share-weight.
+     Same as v0 — biomass was still underperforming at SW=2.5 (got 49 PJ vs 83 PJ target).
+     Keep at 2.5. Biomass is a small sector and doesn't materially affect
+     overall results or emissions. Higher SW here is compensating for the fact
+     that biomass is crowded out by the solar/wind boost.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="biomass" nocreate="1">
+          <share-weight year="2025">2.5</share-weight>
+          <share-weight year="2030">2.5</share-weight>
+          <share-weight year="2035">2.5</share-weight>
+          <share-weight fillout="1" year="2040">2.5</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

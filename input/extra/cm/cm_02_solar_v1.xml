@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_02_solar_v1.xml
+     Current Measures v1: Pakistan solar subsector share-weight.
+     v0 had SW=3.5 → produced 1,149 PJ by 2050 (too high vs real-world grid limits).
+     v1 reduces to 2.5 for a more realistic growth trajectory.
+     Pakistan's consumer-led solar boom is real but grid absorption is constrained.
+     Target: ~700-900 PJ by 2050.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="solar" nocreate="1">
+          <share-weight year="2025">2.5</share-weight>
+          <share-weight year="2030">2.5</share-weight>
+          <share-weight year="2035">2.5</share-weight>
+          <share-weight fillout="1" year="2040">2.5</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

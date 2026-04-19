@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_co2_constraint_netzero_v1_ts_const.xml
+     Time-series Net Zero: linear fraction of each period CM to 0 at 2050.
+     Generated 2026-04-17. -->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="CO2">
+                <market>Pakistan</market>
+                <constraint year="2030">63.053</constraint>
+                <constraint year="2035">56.190</constraint>
+                <constraint year="2040">45.210</constraint>
+                <constraint year="2045">27.466</constraint>
+                <constraint year="2050">0.000</constraint>
+                <constraint year="2055">0.000</constraint>
+                <constraint year="2060">0.000</constraint>
+                <constraint year="2065">0.000</constraint>
+                <constraint year="2070">0.000</constraint>
+                <constraint year="2075">0.000</constraint>
+                <constraint year="2080">0.000</constraint>
+                <constraint year="2085">0.000</constraint>
+                <constraint year="2090">0.000</constraint>
+                <constraint year="2095">0.000</constraint>
+                <constraint year="2100">0.000</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

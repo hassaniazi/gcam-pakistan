@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_07_ev.xml
+     Current Measures: Boost Pakistan EV (BEV) technology share-weights.
+     CONTEXT:
+       EV Activity targets: 0.008 GWa (2025), 0.33 GWa (2030).
+       Pakistan NDC: 30% EV by 2030.
+       Baseline: BEV share-weight = 0 in 2025, s-curve to 1 by 2030 (global tech DB).
+       With share-weight=0 in 2025, BEV cannot compete at all in that period.
+     METHOD: Set BEV share-weight > 0 in 2025 to "turn on" EVs early.
+             Boost to 2.0+ from 2030 onward to reflect 30% EV policy push.
+             Applied to all three 4W subsectors (Car, Large Car and Truck, Mini Car)
+             and 2W/3W subsector.
+     SCOPE NOTE: GCAM "Final Energy|Transportation|LDV|Electricity" includes 2W/3W.
+                 MESSAGE target may be 4W only. We boost both for CM.
+     RISK: Medium. Transport sector has cost coupling through fuel markets and
+           consumer durable tracking. BEV share-weight is at technology level
+           (not subsector). Keep modest — iterate after first run.
+     NOTE: If model fails, this module is safe to remove first (small sector).
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <!-- ============================================================ -->
+      <!-- 4W LDV: Car, Large Car and Truck, Mini Car                   -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_pass_road_LDV_4W" nocreate="1">
+        <!-- Car -->
+        <tranSubsector name="Car" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025">
+              <share-weight>0.5</share-weight>
+            </period>
+            <period year="2030">
+              <share-weight>2.0</share-weight>
+            </period>
+            <period year="2035">
+              <share-weight>2.5</share-weight>
+            </period>
+            <period year="2040">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2045">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2050">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2055">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2060">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2065">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2070">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2075">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2080">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2085">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2090">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2095">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2100">
+              <share-weight>3.0</share-weight>
+            </period>
+          </stub-technology>
+        </tranSubsector>
+        <!-- Large Car and Truck -->
+        <tranSubsector name="Large Car and Truck" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025">
+              <share-weight>0.5</share-weight>
+            </period>
+            <period year="2030">
+              <share-weight>2.0</share-weight>
+            </period>
+            <period year="2035">
+              <share-weight>2.5</share-weight>
+            </period>
+            <period year="2040">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2045">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2050">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2055">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2060">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2065">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2070">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2075">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2080">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2085">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2090">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2095">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2100">
+              <share-weight>3.0</share-weight>
+            </period>
+          </stub-technology>
+        </tranSubsector>
+        <!-- Mini Car -->
+        <tranSubsector name="Mini Car" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025">
+              <share-weight>0.5</share-weight>
+            </period>
+            <period year="2030">
+              <share-weight>2.0</share-weight>
+            </period>
+            <period year="2035">
+              <share-weight>2.5</share-weight>
+            </period>
+            <period year="2040">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2045">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2050">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2055">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2060">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2065">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2070">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2075">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2080">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2085">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2090">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2095">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2100">
+              <share-weight>3.0</share-weight>
+            </period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+      <!-- ============================================================ -->
+      <!-- 2W and 3W: e-rickshaws, e-bikes                              -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_pass_road_LDV" nocreate="1">
+        <tranSubsector name="2W and 3W" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025">
+              <share-weight>0.5</share-weight>
+            </period>
+            <period year="2030">
+              <share-weight>2.0</share-weight>
+            </period>
+            <period year="2035">
+              <share-weight>2.5</share-weight>
+            </period>
+            <period year="2040">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2045">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2050">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2055">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2060">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2065">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2070">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2075">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2080">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2085">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2090">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2095">
+              <share-weight>3.0</share-weight>
+            </period>
+            <period year="2100">
+              <share-weight>3.0</share-weight>
+            </period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

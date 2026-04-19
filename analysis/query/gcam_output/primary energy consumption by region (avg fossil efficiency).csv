@@ -1,0 +1,203 @@
+Units,scenario,region,fuel,year,value
+EJ,Reference,Pakistan,a oil,1990,0.45767199999999997
+EJ,Reference,Pakistan,a oil,2005,0.7172940000000001
+EJ,Reference,Pakistan,a oil,2010,0.885345
+EJ,Reference,Pakistan,a oil,2015,1.121846
+EJ,Reference,Pakistan,a oil,2021,1.1110689999999999
+EJ,Reference,Pakistan,a oil,2025,1.152639
+EJ,Reference,Pakistan,a oil,2030,1.335585
+EJ,Reference,Pakistan,a oil,2035,1.544079
+EJ,Reference,Pakistan,a oil,2040,1.7750190000000001
+EJ,Reference,Pakistan,a oil,2045,2.054827
+EJ,Reference,Pakistan,a oil,2050,2.3138539999999996
+EJ,Reference,Pakistan,a oil,2055,2.531339
+EJ,Reference,Pakistan,a oil,2060,2.8990489999999998
+EJ,Reference,Pakistan,a oil,2065,3.271314
+EJ,Reference,Pakistan,a oil,2070,3.647983
+EJ,Reference,Pakistan,a oil,2075,3.997522
+EJ,Reference,Pakistan,a oil,2080,4.304878
+EJ,Reference,Pakistan,a oil,2085,4.5604130000000005
+EJ,Reference,Pakistan,a oil,2090,4.802607999999999
+EJ,Reference,Pakistan,a oil,2095,5.028099
+EJ,Reference,Pakistan,a oil,2100,5.2858730000000005
+EJ,Reference,Pakistan,b natural gas,1975,0.09059636
+EJ,Reference,Pakistan,b natural gas,1990,0.404083
+EJ,Reference,Pakistan,b natural gas,2005,1.0781079999965
+EJ,Reference,Pakistan,b natural gas,2010,1.13099
+EJ,Reference,Pakistan,b natural gas,2015,1.174674700023
+EJ,Reference,Pakistan,b natural gas,2021,1.342182399995
+EJ,Reference,Pakistan,b natural gas,2025,1.4140638367462999
+EJ,Reference,Pakistan,b natural gas,2030,1.6897333752785
+EJ,Reference,Pakistan,b natural gas,2035,1.9938447679784
+EJ,Reference,Pakistan,b natural gas,2040,2.3793052870660003
+EJ,Reference,Pakistan,b natural gas,2045,2.8553183767876997
+EJ,Reference,Pakistan,b natural gas,2050,3.3450704008167005
+EJ,Reference,Pakistan,b natural gas,2055,3.8415155999496995
+EJ,Reference,Pakistan,b natural gas,2060,4.5123431132598
+EJ,Reference,Pakistan,b natural gas,2065,5.1632452895804
+EJ,Reference,Pakistan,b natural gas,2070,5.775984179177001
+EJ,Reference,Pakistan,b natural gas,2075,6.336057386583001
+EJ,Reference,Pakistan,b natural gas,2080,6.816974632082999
+EJ,Reference,Pakistan,b natural gas,2085,7.191978959723001
+EJ,Reference,Pakistan,b natural gas,2090,7.562113442737999
+EJ,Reference,Pakistan,b natural gas,2095,7.927590841419
+EJ,Reference,Pakistan,b natural gas,2100,8.306902153469002
+EJ,Reference,Pakistan,c coal,1975,0.021432389
+EJ,Reference,Pakistan,c coal,1990,0.08380270000000001
+EJ,Reference,Pakistan,c coal,2005,0.156262
+EJ,Reference,Pakistan,c coal,2010,0.1751847
+EJ,Reference,Pakistan,c coal,2015,0.21063880000000001
+EJ,Reference,Pakistan,c coal,2021,0.658322
+EJ,Reference,Pakistan,c coal,2025,0.767739
+EJ,Reference,Pakistan,c coal,2030,1.009311
+EJ,Reference,Pakistan,c coal,2035,1.30521
+EJ,Reference,Pakistan,c coal,2040,1.724458
+EJ,Reference,Pakistan,c coal,2045,2.233733
+EJ,Reference,Pakistan,c coal,2050,2.757479
+EJ,Reference,Pakistan,c coal,2055,3.231592
+EJ,Reference,Pakistan,c coal,2060,3.903623
+EJ,Reference,Pakistan,c coal,2065,4.674062
+EJ,Reference,Pakistan,c coal,2070,5.522558
+EJ,Reference,Pakistan,c coal,2075,6.4413860000000005
+EJ,Reference,Pakistan,c coal,2080,7.3350729999999995
+EJ,Reference,Pakistan,c coal,2085,8.139224
+EJ,Reference,Pakistan,c coal,2090,8.942547
+EJ,Reference,Pakistan,c coal,2095,9.703699
+EJ,Reference,Pakistan,c coal,2100,10.369942
+EJ,Reference,Pakistan,d biomass,1975,0.062162038999999995
+EJ,Reference,Pakistan,d biomass,1990,0.10121521
+EJ,Reference,Pakistan,d biomass,2005,0.1538336
+EJ,Reference,Pakistan,d biomass,2010,0.1721711
+EJ,Reference,Pakistan,d biomass,2015,0.2013452
+EJ,Reference,Pakistan,d biomass,2021,0.2295586
+EJ,Reference,Pakistan,d biomass,2025,0.2506656493
+EJ,Reference,Pakistan,d biomass,2030,0.31021441260000004
+EJ,Reference,Pakistan,d biomass,2035,0.38324756530000004
+EJ,Reference,Pakistan,d biomass,2040,0.4760645671
+EJ,Reference,Pakistan,d biomass,2045,0.583894453
+EJ,Reference,Pakistan,d biomass,2050,0.7015525508999998
+EJ,Reference,Pakistan,d biomass,2055,0.8101698588000001
+EJ,Reference,Pakistan,d biomass,2060,0.9283608535500001
+EJ,Reference,Pakistan,d biomass,2065,1.0444811573000001
+EJ,Reference,Pakistan,d biomass,2070,1.15787667826
+EJ,Reference,Pakistan,d biomass,2075,1.2707675426
+EJ,Reference,Pakistan,d biomass,2080,1.3782920924
+EJ,Reference,Pakistan,d biomass,2085,1.4774810407100003
+EJ,Reference,Pakistan,d biomass,2090,1.5773559968
+EJ,Reference,Pakistan,d biomass,2095,1.6702277012
+EJ,Reference,Pakistan,d biomass,2100,1.7639294416000002
+EJ,Reference,Pakistan,e nuclear,1990,0.00345276237977754
+EJ,Reference,Pakistan,e nuclear,2005,0.02289421002328614
+EJ,Reference,Pakistan,e nuclear,2010,0.03421348987424707
+EJ,Reference,Pakistan,e nuclear,2015,0.04326420761195124
+EJ,Reference,Pakistan,e nuclear,2021,0.11628394774040487
+EJ,Reference,Pakistan,e nuclear,2025,0.11104291295550639
+EJ,Reference,Pakistan,e nuclear,2030,0.10534310769597105
+EJ,Reference,Pakistan,e nuclear,2035,0.09943177319156625
+EJ,Reference,Pakistan,e nuclear,2040,0.0932082571179948
+EJ,Reference,Pakistan,e nuclear,2045,0.08708041834121366
+EJ,Reference,Pakistan,e nuclear,2050,0.08030991092459676
+EJ,Reference,Pakistan,e nuclear,2055,0.07291848472542707
+EJ,Reference,Pakistan,e nuclear,2060,0.07210609402423585
+EJ,Reference,Pakistan,e nuclear,2065,0.07654079322545734
+EJ,Reference,Pakistan,e nuclear,2070,0.08633050887227103
+EJ,Reference,Pakistan,e nuclear,2075,0.1014301684666396
+EJ,Reference,Pakistan,e nuclear,2080,0.11377612466630864
+EJ,Reference,Pakistan,e nuclear,2085,0.1344639906723461
+EJ,Reference,Pakistan,e nuclear,2090,0.1577531295864965
+EJ,Reference,Pakistan,e nuclear,2095,0.1807174654681482
+EJ,Reference,Pakistan,e nuclear,2100,0.20210725052663828
+EJ,Reference,Pakistan,f hydro,1990,0.1994351606917803
+EJ,Reference,Pakistan,f hydro,2005,0.28446982824294975
+EJ,Reference,Pakistan,f hydro,2010,0.31822299180515634
+EJ,Reference,Pakistan,f hydro,2015,0.32534415788778454
+EJ,Reference,Pakistan,f hydro,2021,0.2542031922544905
+EJ,Reference,Pakistan,f hydro,2025,0.25881175137300855
+EJ,Reference,Pakistan,f hydro,2030,0.2662028064018696
+EJ,Reference,Pakistan,f hydro,2035,0.2732041454293127
+EJ,Reference,Pakistan,f hydro,2040,0.2786752796396087
+EJ,Reference,Pakistan,f hydro,2045,0.2839729780301644
+EJ,Reference,Pakistan,f hydro,2050,0.2907269898735558
+EJ,Reference,Pakistan,f hydro,2055,0.298887085048111
+EJ,Reference,Pakistan,f hydro,2060,0.3047457134967677
+EJ,Reference,Pakistan,f hydro,2065,0.3111927228297568
+EJ,Reference,Pakistan,f hydro,2070,0.3183066869179965
+EJ,Reference,Pakistan,f hydro,2075,0.32567517787674616
+EJ,Reference,Pakistan,f hydro,2080,0.3337659829547773
+EJ,Reference,Pakistan,f hydro,2085,0.3421305623678971
+EJ,Reference,Pakistan,f hydro,2090,0.3501307269007656
+EJ,Reference,Pakistan,f hydro,2095,0.35825662521564233
+EJ,Reference,Pakistan,f hydro,2100,0.3657138353708327
+EJ,Reference,Pakistan,g wind,2015,0.00738452093655083
+EJ,Reference,Pakistan,g wind,2021,0.02373879330250176
+EJ,Reference,Pakistan,g wind,2025,0.04927949943050305
+EJ,Reference,Pakistan,g wind,2030,0.15944371660616954
+EJ,Reference,Pakistan,g wind,2035,0.2892479427312021
+EJ,Reference,Pakistan,g wind,2040,0.4856121607368606
+EJ,Reference,Pakistan,g wind,2045,0.7191090825047359
+EJ,Reference,Pakistan,g wind,2050,0.909021546622331
+EJ,Reference,Pakistan,g wind,2055,1.0347886669912656
+EJ,Reference,Pakistan,g wind,2060,1.2041583287111026
+EJ,Reference,Pakistan,g wind,2065,1.4059749550053646
+EJ,Reference,Pakistan,g wind,2070,1.592181520377926
+EJ,Reference,Pakistan,g wind,2075,1.7921186962577007
+EJ,Reference,Pakistan,g wind,2080,2.003503552167318
+EJ,Reference,Pakistan,g wind,2085,2.2420544650722825
+EJ,Reference,Pakistan,g wind,2090,2.402225882680976
+EJ,Reference,Pakistan,g wind,2095,2.5149290130698456
+EJ,Reference,Pakistan,g wind,2100,2.5703429156464175
+EJ,Reference,Pakistan,h solar,2015,0.00194477935080426
+EJ,Reference,Pakistan,h solar,2021,0.00679655139818674
+EJ,Reference,Pakistan,h solar,2025,0.088504230969534
+EJ,Reference,Pakistan,h solar,2030,0.33644128186171535
+EJ,Reference,Pakistan,h solar,2035,0.6160439522463939
+EJ,Reference,Pakistan,h solar,2040,0.9962023824936438
+EJ,Reference,Pakistan,h solar,2045,1.4371616780755156
+EJ,Reference,Pakistan,h solar,2050,1.833745562898122
+EJ,Reference,Pakistan,h solar,2055,2.0952351241707903
+EJ,Reference,Pakistan,h solar,2060,2.447336981254569
+EJ,Reference,Pakistan,h solar,2065,2.872012984121988
+EJ,Reference,Pakistan,h solar,2070,3.28087705414383
+EJ,Reference,Pakistan,h solar,2075,3.717823395392559
+EJ,Reference,Pakistan,h solar,2080,4.1870173026263435
+EJ,Reference,Pakistan,h solar,2085,4.660049885756143
+EJ,Reference,Pakistan,h solar,2090,5.048300689642775
+EJ,Reference,Pakistan,h solar,2095,5.373157384558345
+EJ,Reference,Pakistan,h solar,2100,5.636041663229496
+EJ,Reference,Pakistan,i geothermal,2025,0.00240270427543862
+EJ,Reference,Pakistan,i geothermal,2030,0.012658578716157632
+EJ,Reference,Pakistan,i geothermal,2035,0.02784377849747127
+EJ,Reference,Pakistan,i geothermal,2040,0.051126139214711555
+EJ,Reference,Pakistan,i geothermal,2045,0.07629765128330762
+EJ,Reference,Pakistan,i geothermal,2050,0.09565887622184413
+EJ,Reference,Pakistan,i geothermal,2055,0.10541828627759564
+EJ,Reference,Pakistan,i geothermal,2060,0.11657516000993504
+EJ,Reference,Pakistan,i geothermal,2065,0.1251438583363018
+EJ,Reference,Pakistan,i geothermal,2070,0.13105095778099293
+EJ,Reference,Pakistan,i geothermal,2075,0.13517403019823254
+EJ,Reference,Pakistan,i geothermal,2080,0.13437089506564628
+EJ,Reference,Pakistan,i geothermal,2085,0.13372483206661565
+EJ,Reference,Pakistan,i geothermal,2090,0.13299171452514888
+EJ,Reference,Pakistan,i geothermal,2095,0.1323481750537793
+EJ,Reference,Pakistan,i geothermal,2100,0.13150705608723168
+EJ,Reference,Pakistan,j traditional biomass,1990,0.68453699
+EJ,Reference,Pakistan,j traditional biomass,2005,0.9821185400000001
+EJ,Reference,Pakistan,j traditional biomass,2010,1.09924363
+EJ,Reference,Pakistan,j traditional biomass,2015,1.22180851
+EJ,Reference,Pakistan,j traditional biomass,2021,1.37970541
+EJ,Reference,Pakistan,j traditional biomass,2025,1.29705788
+EJ,Reference,Pakistan,j traditional biomass,2030,1.1596872599999999
+EJ,Reference,Pakistan,j traditional biomass,2035,1.04383071
+EJ,Reference,Pakistan,j traditional biomass,2040,0.93621384
+EJ,Reference,Pakistan,j traditional biomass,2045,0.83576849
+EJ,Reference,Pakistan,j traditional biomass,2050,0.7447334
+EJ,Reference,Pakistan,j traditional biomass,2055,0.6674982359999999
+EJ,Reference,Pakistan,j traditional biomass,2060,0.60225549
+EJ,Reference,Pakistan,j traditional biomass,2065,0.5474361299999999
+EJ,Reference,Pakistan,j traditional biomass,2070,0.5034664299999999
+EJ,Reference,Pakistan,j traditional biomass,2075,0.46612076099999994
+EJ,Reference,Pakistan,j traditional biomass,2080,0.434627016
+EJ,Reference,Pakistan,j traditional biomass,2085,0.409247249
+EJ,Reference,Pakistan,j traditional biomass,2090,0.38885398700000007
+EJ,Reference,Pakistan,j traditional biomass,2095,0.37264392799999996
+EJ,Reference,Pakistan,j traditional biomass,2100,0.36153834

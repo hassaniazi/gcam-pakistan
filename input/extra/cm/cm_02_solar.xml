@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_02_solar.xml
+     Current Measures: Boost Pakistan solar subsector share-weight.
+     ITERATION 2 — aggressive tuning based on v2 gap analysis.
+     CONTEXT: Solar capacity target = 28.27 GW. CM got 23.40 GW (-17% UNDER).
+              Ratio: 28.27/23.40 × 2.5 = 3.02 → going 3.5 (aggressive).
+     METHOD: Increase solar share-weight to 3.5.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="solar" nocreate="1">
+          <share-weight year="2025">3.5</share-weight>
+          <share-weight year="2030">3.5</share-weight>
+          <share-weight year="2035">3.5</share-weight>
+          <share-weight fillout="1" year="2040">3.5</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_03_wind_v1.xml
+     Current Measures v1: Pakistan wind subsector share-weight.
+     Same as v0 — wind tuning was already reasonable.
+     v0 2025 target of 0.45 GWa was met (0.51 GWa, +13% over).
+     Keeping the same trajectory.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="wind" nocreate="1">
+          <share-weight year="2025">0.45</share-weight>
+          <share-weight year="2030">0.6</share-weight>
+          <share-weight year="2035">0.8</share-weight>
+          <share-weight fillout="1" year="2040">1.0</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

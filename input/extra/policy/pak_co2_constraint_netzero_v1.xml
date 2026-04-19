@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_co2_constraint_netzero_v1.xml
+     Net Zero emissions constraint for Pakistan.
+     Generated from CM v1 (CurrentMeasuresRev) output on 2026-04-17.
+     Linear decline from CM v1 2025 E&IP to 0 by 2050, hold at 0 through 2100.
+     Units: MTC (million tonnes carbon). Conversion: Mt CO2 * 12/44 = MTC.
+
+     CM v1 E&IP 2025: 241.26 Mt CO2 -> 65.800 MTC
+     Linear 5-step decline:
+       2030: 65.800 x 0.80 = 52.640 MTC
+       2035: 65.800 x 0.60 = 39.480 MTC
+       2040: 65.800 x 0.40 = 26.320 MTC
+       2045: 65.800 x 0.20 = 13.160 MTC
+       2050: 0
+
+     SOLVER NOTE: constraint=0 is very aggressive. If solver fails:
+       1. Try 1.0 MTC at 2050 (= 3.67 Mt CO2, near-zero)
+       2. Push zero to 2060, set 2050 = 6.580 MTC
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="CO2">
+                <market>Pakistan</market>
+                <constraint year="2030">52.640</constraint>
+                <constraint year="2035">39.480</constraint>
+                <constraint year="2040">26.320</constraint>
+                <constraint year="2045">13.160</constraint>
+                <constraint year="2050">0.000</constraint>
+                <constraint year="2055">0.000</constraint>
+                <constraint year="2060">0.000</constraint>
+                <constraint year="2065">0.000</constraint>
+                <constraint year="2070">0.000</constraint>
+                <constraint year="2075">0.000</constraint>
+                <constraint year="2080">0.000</constraint>
+                <constraint year="2085">0.000</constraint>
+                <constraint year="2090">0.000</constraint>
+                <constraint year="2095">0.000</constraint>
+                <constraint year="2100">0.000</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

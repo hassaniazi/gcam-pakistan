@@ -1,0 +1,331 @@
+Units,scenario,region,subsector,technology,output,year,value
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2030,4.74953e-4
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2035,0.00110698
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2040,0.0023557
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2045,0.00421982
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2050,0.00622289
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2055,0.0078078
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2060,0.0113188
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2065,0.0160059
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2070,0.022014
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2075,0.0296221
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2080,0.0378984
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2085,0.0466919
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2090,0.0572475
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2095,0.0683412
+EJ,Reference,Pakistan,biomass,biomass (IGCC),electricity,2100,0.0798534
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2015,0.00200182
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2021,0.00270709
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2025,0.00194655
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2030,0.00360282
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2035,0.00574717
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2040,0.00989047
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2045,0.0153529
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2050,0.0203366
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2055,0.022892
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2060,0.0297123
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2065,0.037944
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2070,0.0476534
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2075,0.0591852
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2080,0.0709717
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2085,0.082533
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2090,0.0963883
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2095,0.109878
+EJ,Reference,Pakistan,biomass,biomass (conv),electricity,2100,0.124201
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2030,4.01792e-4
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2035,8.51651e-4
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2040,0.00153955
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2045,0.00238392
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2050,0.00316158
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2055,0.00371724
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2060,0.00472152
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2065,0.00591123
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2070,0.00726405
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2075,0.00879401
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2080,0.010298
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2085,0.0117227
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2090,0.0129141
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2095,0.0140365
+EJ,Reference,Pakistan,coal,coal (IGCC),electricity,2100,0.0148562
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,1990,1.36808e-4
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2005,4.64359e-4
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2010,3.16813e-4
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2015,5.32858e-4
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2021,0.104867
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2025,0.12703
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2030,0.175603
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2035,0.233985
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2040,0.332916
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2045,0.462488
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2050,0.585418
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2055,0.675438
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2060,0.859207
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2065,1.09114
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2070,1.36856
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2075,1.6971
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2080,2.02935
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2085,2.33941
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2090,2.67548
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2095,3.00687
+EJ,Reference,Pakistan,coal,coal (conv pul),electricity,2100,3.29795
+EJ,Reference,Pakistan,gas,gas (CC),electricity,1990,0.00150028
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2005,0.0519394
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2021,0.161105
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2025,0.182187
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2030,0.235703
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2035,0.289159
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2040,0.372245
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2045,0.480005
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2050,0.576264
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2055,0.643718
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2060,0.797574
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2065,0.9693
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2070,1.15644
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2075,1.34538
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2080,1.52195
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2085,1.65806
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2090,1.81018
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2095,1.97425
+EJ,Reference,Pakistan,gas,gas (CC),electricity,2100,2.15982
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,1990,0.0441109
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2005,0.096677
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2010,0.0931684
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2015,0.126017
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2021,0.0360732
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2025,0.0341859
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2030,0.0423981
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2035,0.0486144
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2040,0.058873
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2045,0.0727322
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2050,0.080909
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2055,0.0843833
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2060,0.0974926
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2065,0.10357
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2070,0.104706
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2075,0.102356
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2080,0.0987032
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2085,0.0933713
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2090,0.0891063
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2095,0.086352
+EJ,Reference,Pakistan,gas,gas (steam/CT),electricity,2100,0.0857723
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2025,0.0011619
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2030,0.00621201
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2035,0.0138721
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2040,0.0259768
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2045,0.0395152
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2050,0.0501944
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2055,0.0557376
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2060,0.0625479
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2065,0.0679577
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2070,0.0718307
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2075,0.0746884
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2080,0.0746506
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2085,0.074617
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2090,0.0745934
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2095,0.0745728
+EJ,Reference,Pakistan,geothermal,geothermal,electricity,2100,0.0745582
+EJ,Reference,Pakistan,hydro,hydro,electricity,1990,0.06093
+EJ,Reference,Pakistan,hydro,hydro,electricity,2005,0.111103
+EJ,Reference,Pakistan,hydro,hydro,electricity,2010,0.11452
+EJ,Reference,Pakistan,hydro,hydro,electricity,2015,0.124679
+EJ,Reference,Pakistan,hydro,hydro,electricity,2021,0.120773
+EJ,Reference,Pakistan,hydro,hydro,electricity,2025,0.125156
+EJ,Reference,Pakistan,hydro,hydro,electricity,2030,0.130635
+EJ,Reference,Pakistan,hydro,hydro,electricity,2035,0.136114
+EJ,Reference,Pakistan,hydro,hydro,electricity,2040,0.141593
+EJ,Reference,Pakistan,hydro,hydro,electricity,2045,0.147072
+EJ,Reference,Pakistan,hydro,hydro,electricity,2050,0.152551
+EJ,Reference,Pakistan,hydro,hydro,electricity,2055,0.15803
+EJ,Reference,Pakistan,hydro,hydro,electricity,2060,0.16351
+EJ,Reference,Pakistan,hydro,hydro,electricity,2065,0.168989
+EJ,Reference,Pakistan,hydro,hydro,electricity,2070,0.174468
+EJ,Reference,Pakistan,hydro,hydro,electricity,2075,0.179947
+EJ,Reference,Pakistan,hydro,hydro,electricity,2080,0.185426
+EJ,Reference,Pakistan,hydro,hydro,electricity,2085,0.190905
+EJ,Reference,Pakistan,hydro,hydro,electricity,2090,0.196384
+EJ,Reference,Pakistan,hydro,hydro,electricity,2095,0.201863
+EJ,Reference,Pakistan,hydro,hydro,electricity,2100,0.207342
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2030,6.41486e-4
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2035,0.00217318
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2040,0.0049446
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2045,0.00889897
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2050,0.0130404
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2055,0.0163707
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2060,0.0227033
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2065,0.0306158
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2070,0.0401063
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2075,0.0514193
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2080,0.0631738
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2085,0.0749877
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2090,0.0884331
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2095,0.101771
+EJ,Reference,Pakistan,nuclear,Gen_III,electricity,2100,0.114522
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,1990,0.00105486
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2005,0.00894161
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2010,0.0123125
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2015,0.0165798
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2021,0.055247
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2025,0.053698
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2030,0.0510537
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2035,0.0473638
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2040,0.0424102
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2045,0.0361945
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2050,0.0290908
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2055,0.0221712
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2060,0.0159691
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2065,0.0109287
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2070,0.00718802
+EJ,Reference,Pakistan,nuclear,Gen_II_LWR,electricity,2075,0.00459497
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2025,0.00426741
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2030,0.0170764
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2035,0.0362297
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2040,0.0788187
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2045,0.134215
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2050,0.173646
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2055,0.176655
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2060,0.233095
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2065,0.277492
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2070,0.314292
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2075,0.341086
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2080,0.346143
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2085,0.330428
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2090,0.307714
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2095,0.274
+EJ,Reference,Pakistan,refined liquids,refined liquids (CC),electricity,2100,0.262073
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,1990,0.0278945
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2005,0.0679188
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2010,0.119475
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2015,0.127317
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2021,0.0656542
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2025,0.0568182
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2030,0.065855
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2035,0.0738462
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2040,0.0842148
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2045,0.0891956
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2050,0.0879567
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2055,0.0797483
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2060,0.0776641
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2065,0.0724615
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2070,0.0670221
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2075,0.0562877
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2080,0.0460338
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2085,0.0339053
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2090,0.024115
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2095,0.0182393
+EJ,Reference,Pakistan,refined liquids,refined liquids (steam/CT),electricity,2100,0.0161983
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2025,0.0171872
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2030,0.0396175
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2035,0.0717822
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2040,0.111561
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2045,0.15999
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2050,0.218051
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2055,0.276552
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2060,0.377861
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2065,0.489994
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2070,0.601661
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2075,0.70605
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2080,0.805106
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2085,0.874079
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2090,0.950039
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2095,1.02547
+EJ,Reference,Pakistan,rooftop_pv,rooftop_pv,elect_td_bld,2100,1.11496
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2025,3.84192e-6
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2030,8.42062e-5
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2035,3.29743e-4
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2040,0.00110756
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2045,0.00266765
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2050,0.00474732
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2055,0.00670523
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2060,0.0106958
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2065,0.0159039
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2070,0.0218825
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2075,0.0283739
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2080,0.0348871
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2085,0.0417435
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2090,0.0480964
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2095,0.0533854
+EJ,Reference,Pakistan,solar,CSP_storage,electricity,2100,0.0574894
+EJ,Reference,Pakistan,solar,PV,electricity,2015,7.45282e-4
+EJ,Reference,Pakistan,solar,PV,electricity,2021,0.00322907
+EJ,Reference,Pakistan,solar,PV,electricity,2025,0.02560527
+EJ,Reference,Pakistan,solar,PV,electricity,2030,0.12535497
+EJ,Reference,Pakistan,solar,PV,electricity,2035,0.23460897000000003
+EJ,Reference,Pakistan,solar,PV,electricity,2040,0.39272397000000003
+EJ,Reference,Pakistan,solar,PV,electricity,2045,0.57958997
+EJ,Reference,Pakistan,solar,PV,electricity,2050,0.7354478999999999
+EJ,Reference,Pakistan,solar,PV,electricity,2055,0.8187156999999999
+EJ,Reference,Pakistan,solar,PV,electricity,2060,0.9148000000000001
+EJ,Reference,Pakistan,solar,PV,electricity,2065,1.0388719999999998
+EJ,Reference,Pakistan,solar,PV,electricity,2070,1.1541830000000002
+EJ,Reference,Pakistan,solar,PV,electricity,2075,1.293366
+EJ,Reference,Pakistan,solar,PV,electricity,2080,1.454318
+EJ,Reference,Pakistan,solar,PV,electricity,2085,1.647357
+EJ,Reference,Pakistan,solar,PV,electricity,2090,1.792243
+EJ,Reference,Pakistan,solar,PV,electricity,2095,1.904967
+EJ,Reference,Pakistan,solar,PV,electricity,2100,1.977984
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2025,2.4772e-6
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2030,4.58575e-5
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2035,1.960045e-4
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2040,7.544025e-4
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2045,0.0020377725
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2050,0.0039071525
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2055,0.0057605853
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2060,0.009648595
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2065,0.014706048
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2070,0.02040194
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2075,0.026243209999999996
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2080,0.03158581
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2085,0.03681188
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2090,0.04085336
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2095,0.04340174
+EJ,Reference,Pakistan,solar,PV_storage,electricity,2100,0.044564469999999995
+EJ,Reference,Pakistan,wind,wind,electricity,2015,0.00282991
+EJ,Reference,Pakistan,wind,wind,electricity,2021,0.0112784
+EJ,Reference,Pakistan,wind,wind,electricity,2025,0.0238065
+EJ,Reference,Pakistan,wind,wind,electricity,2030,0.0779393
+EJ,Reference,Pakistan,wind,wind,electricity,2035,0.1431
+EJ,Reference,Pakistan,wind,wind,electricity,2040,0.243776
+EJ,Reference,Pakistan,wind,wind,electricity,2045,0.365792
+EJ,Reference,Pakistan,wind,wind,electricity,2050,0.46582959999999995
+EJ,Reference,Pakistan,wind,wind,electricity,2055,0.5322619000000001
+EJ,Reference,Pakistan,wind,wind,electricity,2060,0.6240451
+EJ,Reference,Pakistan,wind,wind,electricity,2065,0.7328984
+EJ,Reference,Pakistan,wind,wind,electricity,2070,0.8331173999999999
+EJ,Reference,Pakistan,wind,wind,electricity,2075,0.9413644
+EJ,Reference,Pakistan,wind,wind,electricity,2080,1.0551574000000001
+EJ,Reference,Pakistan,wind,wind,electricity,2085,1.185026
+EJ,Reference,Pakistan,wind,wind,electricity,2090,1.274895
+EJ,Reference,Pakistan,wind,wind,electricity,2095,1.3404729999999998
+EJ,Reference,Pakistan,wind,wind,electricity,2100,1.3788719999999999
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2025,1.21056e-5
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2030,1.4980560000000002e-4
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2035,4.557416e-4
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2040,0.0011964696
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2045,0.0024357095999999996
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2050,0.003848504
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2055,0.004769514
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2060,0.006349558
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2065,0.00782673
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2070,0.009071929999999999
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2075,0.01042233
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2080,0.0120753
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2085,0.012796250000000002
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2090,0.01350992
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2095,0.01387372
+EJ,Reference,Pakistan,wind,wind_offshore,electricity,2100,0.013831689999999999
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2025,1.19055e-5
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2030,1.542835e-4
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2035,5.461405e-4
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2040,0.0017453905
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2045,0.0041702005
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2050,0.0072502005
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2055,0.010013204999999999
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2060,0.015587727
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2065,0.02263807
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2070,0.030343009999999997
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2075,0.038227399999999995
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2080,0.045600299999999996
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2085,0.05295929
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2090,0.05868309
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2095,0.06239169
+EJ,Reference,Pakistan,wind,wind_storage,electricity,2100,0.0642041

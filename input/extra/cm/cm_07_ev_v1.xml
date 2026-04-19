@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_07_ev_v1.xml
+     Current Measures v1: Pakistan EV/NEV policy implementation.
+
+     Based on Pakistan's New Energy Vehicle (NEV) Policy 2025-2030:
+       2W/3W: 2.05M vehicles by 2030, 50% of new sales by 2030
+       4W:    99K vehicles by 2030, 30% of new sales by 2030
+       Buses: 2,238 by 2030, 50% of new sales by 2030
+       Trucks: 2,996 by 2030, 30% of new sales by 2030
+       Ultimate target: 90% of all new vehicle sales by 2040
+
+     v0 had modest SW (0.5→3.0) → produced only 198 PJ transport elec by 2050.
+     v1 is much more aggressive to reflect the policy targets:
+       - 2W/3W: SW 2.0→8.0 (50% adoption by 2030, 90% by 2040)
+       - 4W:    SW 1.0→7.0 (30% adoption by 2030, 90% by 2040)
+       - Bus:   SW 1.0→7.0 (50% adoption by 2030, 90% by 2040)
+       - Freight: SW 0.5→5.0 (30% adoption by 2030, 90% by 2040)
+
+     NOTE: GCAM share-weights are not penetration percentages. Higher values
+     make BEV more competitive in the logit competition. These values are
+     calibrated to approximate the policy penetration targets.
+
+     SCOPE: GCAM "Final Energy|Transportation|LDV|Electricity" includes 2W/3W.
+     Applied to: trn_pass_road_LDV_4W (Car, Large Car, Mini Car),
+                 trn_pass_road_LDV (2W and 3W),
+                 trn_pass_road (Bus),
+                 trn_freight_road (Light truck)
+
+     RISK: Medium. If model fails, reduce freight/bus SW first, then 4W.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <!-- ============================================================ -->
+      <!-- 4W LDV: Car, Large Car and Truck, Mini Car                   -->
+      <!-- NEV target: 30% new sales by 2030, 90% by 2040              -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_pass_road_LDV_4W" nocreate="1">
+        <!-- Car -->
+        <tranSubsector name="Car" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2030"><share-weight>4.0</share-weight></period>
+            <period year="2035"><share-weight>5.5</share-weight></period>
+            <period year="2040"><share-weight>7.0</share-weight></period>
+            <period year="2045"><share-weight>7.0</share-weight></period>
+            <period year="2050"><share-weight>7.0</share-weight></period>
+            <period year="2055"><share-weight>7.0</share-weight></period>
+            <period year="2060"><share-weight>7.0</share-weight></period>
+            <period year="2065"><share-weight>7.0</share-weight></period>
+            <period year="2070"><share-weight>7.0</share-weight></period>
+            <period year="2075"><share-weight>7.0</share-weight></period>
+            <period year="2080"><share-weight>7.0</share-weight></period>
+            <period year="2085"><share-weight>7.0</share-weight></period>
+            <period year="2090"><share-weight>7.0</share-weight></period>
+            <period year="2095"><share-weight>7.0</share-weight></period>
+            <period year="2100"><share-weight>7.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+        <!-- Large Car and Truck -->
+        <tranSubsector name="Large Car and Truck" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2030"><share-weight>4.0</share-weight></period>
+            <period year="2035"><share-weight>5.5</share-weight></period>
+            <period year="2040"><share-weight>7.0</share-weight></period>
+            <period year="2045"><share-weight>7.0</share-weight></period>
+            <period year="2050"><share-weight>7.0</share-weight></period>
+            <period year="2055"><share-weight>7.0</share-weight></period>
+            <period year="2060"><share-weight>7.0</share-weight></period>
+            <period year="2065"><share-weight>7.0</share-weight></period>
+            <period year="2070"><share-weight>7.0</share-weight></period>
+            <period year="2075"><share-weight>7.0</share-weight></period>
+            <period year="2080"><share-weight>7.0</share-weight></period>
+            <period year="2085"><share-weight>7.0</share-weight></period>
+            <period year="2090"><share-weight>7.0</share-weight></period>
+            <period year="2095"><share-weight>7.0</share-weight></period>
+            <period year="2100"><share-weight>7.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+        <!-- Mini Car -->
+        <tranSubsector name="Mini Car" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2030"><share-weight>4.0</share-weight></period>
+            <period year="2035"><share-weight>5.5</share-weight></period>
+            <period year="2040"><share-weight>7.0</share-weight></period>
+            <period year="2045"><share-weight>7.0</share-weight></period>
+            <period year="2050"><share-weight>7.0</share-weight></period>
+            <period year="2055"><share-weight>7.0</share-weight></period>
+            <period year="2060"><share-weight>7.0</share-weight></period>
+            <period year="2065"><share-weight>7.0</share-weight></period>
+            <period year="2070"><share-weight>7.0</share-weight></period>
+            <period year="2075"><share-weight>7.0</share-weight></period>
+            <period year="2080"><share-weight>7.0</share-weight></period>
+            <period year="2085"><share-weight>7.0</share-weight></period>
+            <period year="2090"><share-weight>7.0</share-weight></period>
+            <period year="2095"><share-weight>7.0</share-weight></period>
+            <period year="2100"><share-weight>7.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+
+      <!-- ============================================================ -->
+      <!-- 2W and 3W: e-bikes, e-rickshaws                              -->
+      <!-- NEV target: 50% new sales by 2030, 90% by 2040              -->
+      <!-- 2W/3W dominate Pakistan's NEV numbers (2.05M of 2.21M total) -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_pass_road_LDV" nocreate="1">
+        <tranSubsector name="2W and 3W" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>2.0</share-weight></period>
+            <period year="2030"><share-weight>5.0</share-weight></period>
+            <period year="2035"><share-weight>6.5</share-weight></period>
+            <period year="2040"><share-weight>8.0</share-weight></period>
+            <period year="2045"><share-weight>8.0</share-weight></period>
+            <period year="2050"><share-weight>8.0</share-weight></period>
+            <period year="2055"><share-weight>8.0</share-weight></period>
+            <period year="2060"><share-weight>8.0</share-weight></period>
+            <period year="2065"><share-weight>8.0</share-weight></period>
+            <period year="2070"><share-weight>8.0</share-weight></period>
+            <period year="2075"><share-weight>8.0</share-weight></period>
+            <period year="2080"><share-weight>8.0</share-weight></period>
+            <period year="2085"><share-weight>8.0</share-weight></period>
+            <period year="2090"><share-weight>8.0</share-weight></period>
+            <period year="2095"><share-weight>8.0</share-weight></period>
+            <period year="2100"><share-weight>8.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+
+      <!-- ============================================================ -->
+      <!-- Bus: electric buses                                           -->
+      <!-- NEV target: 50% new sales by 2030, 90% by 2040              -->
+      <!-- Small numbers (2,238 by 2030) but targets are ambitious      -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_pass_road" nocreate="1">
+        <tranSubsector name="Bus" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2030"><share-weight>4.0</share-weight></period>
+            <period year="2035"><share-weight>5.5</share-weight></period>
+            <period year="2040"><share-weight>7.0</share-weight></period>
+            <period year="2045"><share-weight>7.0</share-weight></period>
+            <period year="2050"><share-weight>7.0</share-weight></period>
+            <period year="2055"><share-weight>7.0</share-weight></period>
+            <period year="2060"><share-weight>7.0</share-weight></period>
+            <period year="2065"><share-weight>7.0</share-weight></period>
+            <period year="2070"><share-weight>7.0</share-weight></period>
+            <period year="2075"><share-weight>7.0</share-weight></period>
+            <period year="2080"><share-weight>7.0</share-weight></period>
+            <period year="2085"><share-weight>7.0</share-weight></period>
+            <period year="2090"><share-weight>7.0</share-weight></period>
+            <period year="2095"><share-weight>7.0</share-weight></period>
+            <period year="2100"><share-weight>7.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+
+      <!-- ============================================================ -->
+      <!-- Freight: Light truck (electric)                               -->
+      <!-- NEV target: 30% new sales by 2030, 90% by 2040              -->
+      <!-- Smallest adoption numbers (~3K by 2030), most uncertain      -->
+      <!-- ============================================================ -->
+      <supplysector name="trn_freight_road" nocreate="1">
+        <tranSubsector name="Light truck" nocreate="1">
+          <stub-technology name="BEV" nocreate="1">
+            <period year="2025"><share-weight>0.5</share-weight></period>
+            <period year="2030"><share-weight>3.0</share-weight></period>
+            <period year="2035"><share-weight>4.0</share-weight></period>
+            <period year="2040"><share-weight>5.0</share-weight></period>
+            <period year="2045"><share-weight>5.0</share-weight></period>
+            <period year="2050"><share-weight>5.0</share-weight></period>
+            <period year="2055"><share-weight>5.0</share-weight></period>
+            <period year="2060"><share-weight>5.0</share-weight></period>
+            <period year="2065"><share-weight>5.0</share-weight></period>
+            <period year="2070"><share-weight>5.0</share-weight></period>
+            <period year="2075"><share-weight>5.0</share-weight></period>
+            <period year="2080"><share-weight>5.0</share-weight></period>
+            <period year="2085"><share-weight>5.0</share-weight></period>
+            <period year="2090"><share-weight>5.0</share-weight></period>
+            <period year="2095"><share-weight>5.0</share-weight></period>
+            <period year="2100"><share-weight>5.0</share-weight></period>
+          </stub-technology>
+        </tranSubsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

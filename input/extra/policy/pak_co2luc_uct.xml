@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_co2luc_uct.xml
+     UCT (Universal Carbon Tax/Trading) for Pakistan.
+     Couples land-use/agriculture CO2 to the carbon price and constraint.
+
+     price-adjust=1.0:  AFOLU sectors face the full carbon price.
+     demand-adjust=1.0: AFOLU CO2 counts toward the constraint.
+     Result: constraint applies to ALL CO2 (energy + industrial + AFOLU).
+
+     Since Pakistan AFOLU is a net CO2 sink (~11-18 Mt/yr), this provides
+     a small buffer: E&IP can slightly exceed the MTC target because the
+     AFOLU sink offsets some emissions.
+
+     WARNING: Must be loaded AFTER the ghgpolicy CO2 constraint XML.
+     Pattern: matches global_uct_in_constraint.xml but Pakistan-only.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <linked-ghg-policy name="CO2_LUC">
+                <market>Pakistan</market>
+                <linked-policy>CO2</linked-policy>
+                <price-adjust year="1975" fillout="1">1.0</price-adjust>
+                <demand-adjust year="1975" fillout="1">1.0</demand-adjust>
+                <price-unit>1990$/tC</price-unit>
+                <output-unit>MTC</output-unit>
+            </linked-ghg-policy>
+        </region>
+    </world>
+</scenario>

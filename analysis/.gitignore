@@ -1,0 +1,26 @@
+# Project files
+.Rproj.user
+.Rhistory
+.RData
+..Rcheck/
+.Rapp.history
+
+# Drake files
+.drake/
+
+
+# OS files
+.DS_Store
+
+# emacs backup files
+*~
+
+# junk produced when developing the python scripts
+*pycache*
+
+# Renv
+renv/activate.R
+.Rprofile
+
+gcamreport
+gcam-tuner

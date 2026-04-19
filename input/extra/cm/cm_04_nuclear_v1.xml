@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_04_nuclear_v1.xml
+     Current Measures v1: Pakistan nuclear subsector share-weight.
+     v0 had SW=2.5 → produced 295 PJ by 2050 (~41 GW capacity, implausible).
+     "Current measures" = planned projects only:
+       - Operational: K-2, K-3 (2.2 GW), C-1 to C-4 (1.3 GW) = ~3.5 GW
+       - Under discussion: C-5 (1.1 GW), possibly 1-2 more Chinese units
+       - Realistic CM ceiling: ~6-8 GW by 2050
+     v1 reduces SW to 1.8 (2025, matches 2.643 GWa target), then tapers.
+     Baseline drops nuclear SW from 1.0 to 0.075 by 2035, so we still need
+     values >1 to overcome the baseline suppression.
+     Target: ~150-200 PJ by 2050 (~5-6 GWa).
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="nuclear" nocreate="1">
+          <share-weight year="2025">1.8</share-weight>
+          <share-weight year="2030">1.5</share-weight>
+          <share-weight year="2035">1.2</share-weight>
+          <share-weight year="2040">1.0</share-weight>
+          <share-weight year="2045">0.8</share-weight>
+          <share-weight fillout="1" year="2050">0.8</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

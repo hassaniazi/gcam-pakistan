@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_04_nuclear.xml
+     Current Measures: Boost Pakistan nuclear subsector share-weight.
+     ITERATION 2 — aggressive tuning based on v2 gap analysis.
+     CONTEXT: Nuclear gen target = 2.643 GWa. CM got 1.948 GWa (-26% UNDER).
+              Baseline drops from 1.0 to 0.075 by 2035.
+              1.5 wasn't enough. Ratio: 2.643/1.948 × 1.5 = 2.04 → going 2.5.
+     METHOD: Override nuclear share-weight to 2.5 (was 1.5).
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="nuclear" nocreate="1">
+          <share-weight year="2025">2.5</share-weight>
+          <share-weight year="2030">2.5</share-weight>
+          <share-weight year="2035">2.5</share-weight>
+          <share-weight fillout="1" year="2040">2.5</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

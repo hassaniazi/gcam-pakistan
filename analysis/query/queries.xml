@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+    <aquery>
+        <region name = "Pakistan"/>
+        <supplyDemandQuery title="primary energy consumption by region (direct equivalent)">
+        <axis1 name="fuel">input[@name]</axis1>
+        <axis2 name="Year">demand-physical[@vintage]</axis2>
+        <xPath buildList="true" dataName="input" group="false" sumAll="false"><![CDATA[
+                        
+                        declare function local:append-heirarchy($parent as node(), $append as node()) as node() {
+                            let $scn := $parent/ancestor::scenario,
+                                $rgn := $parent/ancestor::region
+                            return
+                                document { element scenario {
+                                                    $scn/@*,
+                                                    element region {
+                                                        $rgn/@*,
+                                                        $append
+                                                    }
+                                                }
+                                }
+                        };  
+                        declare function local:get-primary-renewable($outputs as node()*) as node()* {
+                        unordered { 	
+                        for $output in $outputs 
+                        let $new_output :=  
+                        element input {
+                            attribute type {'input'},
+                            attribute name {$output/parent::*/following-sibling::keyword/@primary-renewable},
+                            element demand-physical {
+                                attribute vintage {$output/@vintage},
+                                attribute unit {$output/@unit},
+                                text { $output }
+                            }
+                        },
+                        $new_root := local:append-heirarchy($output/parent::*/parent::*, $new_output)
+                        return $new_root//text()
+                        } 
+                        };
+                        declare function local:run-primary-energy($scenarios as xs:string*, $regions as xs:string*, $collection as xs:string) as node()* { 	
+                        let $regionsG := if(not($regions[1] = 'Global'))
+                                then $regions
+                                else distinct-values(collection($collection)/scenario/world/*[@type='region']/@name)
+                        return
+                        for $scenario in $scenarios, 	    
+                        $region in $regionsG 	
+                        let $scenario_split := tokenize($scenario, ' '), 	    
+                        $scenario_name := string-join($scenario_split[position() < last()], ' '),
+                        $scenario_date := $scenario_split[last()],
+                        $currTree := collection($collection)/scenario[@name = $scenario_name and @date = $scenario_date]/world/*[@type = 'region' and @name=$region]
+                        return (: get renewables from electricity :)
+                                    local:get-primary-renewable($currTree/*[@type='sector' (: collapse :) and (@name='electricity' or @name='elect_td_bld' or starts-with(@name,'elec_'))]//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output)
+                                    | (: get renewables from H2ProdCS :)
+                                    local:get-primary-renewable($currTree/supplysector[@name='H2 central production'](: /*[@type='subsector' (: collapse :) and fn:not(@name='electrolysis')] :)//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output)
+                                    | (: get renewables from H2ProdDist :)
+                                    local:get-primary-renewable($currTree/supplysector[@name='H2 forecourt production'](: /*[@type='subsector' (: collapse :) and fn:not(@name='electrolysis')] :)//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output)
+                                    | (: get the primaries :)
+                                    $currTree//keyword[fn:exists(@primary-consumption)]/preceding-sibling::*[@type='input']/demand-physical/text()
+                                    | (: get traditional biomass :)
+                                    $currTree//*[@type='input' and @name='traditional biomass']/demand-physical/node()
+                            
+            }; 
+                    local:run-primary-energy((:scenarios:), (:regions:), (:collection:))
+                    
+                
+                    ]]></xPath>
+        <comments/>
+        <labelRewriteList append-values="false">
+            <level name="input">
+                <rewrite from="water_td_pri_C" to=""/>
+                <rewrite from="H2 industrial" to=""/>
+                <rewrite from="traded RUS pipeline gas" to="b natural gas"/>
+                <rewrite from="traditional biomass" to="j traditional biomass"/>
+                <rewrite from="regional corn for ethanol" to="d biomass"/>
+                <rewrite from="regional biomassOil" to="d biomass"/>
+                <rewrite from="traded N.Amer pipeline gas" to="b natural gas"/>
+                <rewrite from="traded LNG" to="b natural gas"/>
+                <rewrite from="traded coal" to="c coal"/>
+                <rewrite from="solar-elect" to="h solar"/>
+                <rewrite from="woodpulp_energy" to="d biomass"/>
+                <rewrite from="seawater" to=""/>
+                <rewrite from="elect_td_ind" to=""/>
+                <rewrite from="traded EUR pipeline gas" to="b natural gas"/>
+                <rewrite from="water_td_pri_W" to=""/>
+                <rewrite from="total biomass" to="d biomass"/>
+                <rewrite from="nuclear-H2" to="e nuclear"/>
+                <rewrite from="traded oil" to="a oil"/>
+                <rewrite from="k new" to="k new"/>
+                <rewrite from="exotic-elect" to="j breakthrough"/>
+                <rewrite from="wind-H2" to="g wind"/>
+                <rewrite from="biomass" to="d biomass"/>
+                <rewrite from="crude oil" to="a oil"/>
+                <rewrite from="nuclear-elect" to="e nuclear"/>
+                <rewrite from="solar-H2" to="h solar"/>
+                <rewrite from="regional natural gas" to=""/>
+                <rewrite from="traded unconventional oil" to="a oil"/>
+                <rewrite from="traded PAC pipeline gas" to="b natural gas"/>
+                <rewrite from="geothermal-elect" to="i geothermal"/>
+                <rewrite from="traded Afr_MidE pipeline gas" to="b natural gas"/>
+                <rewrite from="natural gas" to="b natural gas"/>
+                <rewrite from="wholesale gas" to=""/>
+                <rewrite from="traded natural gas" to="b natural gas"/>
+                <rewrite from="hydro-elect" to="f hydro"/>
+                <rewrite from="regional biomass" to="d biomass"/>
+                <rewrite from="coal" to="c coal"/>
+                <rewrite from="wind-elect" to="g wind"/>
+                <rewrite from="traded LA pipeline gas" to="b natural gas"/>
+            </level>
+        </labelRewriteList>
+        </supplyDemandQuery>        
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <supplyDemandQuery title="primary energy consumption by region (avg fossil efficiency)">
+        <axis1 name="fuel">input[@name]</axis1>
+        <axis2 name="Year">demand-physical[@vintage]</axis2>
+        <xPath buildList="true" dataName="input" group="false" sumAll="false"><![CDATA[
+                        
+                    declare function local:get-weighted-eff($outputs as node()*) as node()* {
+                            unordered {
+                                for $year in distinct-values($outputs/physical-output/@vintage)
+                                    let $eff_unweight := sum(for $res in $outputs/physical-output[@vintage = $year]
+                                                    let $eff_curr := $res/parent::*/following-sibling::input-energy[1]/IO-coefficient[@vintage = $year]
+                                                    (: where $res/physical-output/@vintage = $year :)
+                                                    return $res div $eff_curr),
+                                        $weight := sum(for $res in $outputs/physical-output[@vintage = $year]
+                                                (: where $res/physical-output/@vintage = $year :)
+                                                return $res),
+                                        $eff_weighted := $eff_unweight div $weight
+                                    return element efficiency-weighted {attribute year { $year }, text { $eff_weighted }}
+                                    }
+                        };
+                        declare function local:append-heirarchy($parent as node(), $append as node()) as node() {
+                            let $scn := $parent/ancestor::scenario,
+                                $rgn := $parent/ancestor::region
+                            return
+                                document { element scenario {
+                                                    $scn/@*,
+                                                    element region {
+                                                        $rgn/@*,
+                                                        $append
+                                                    }
+                                                }
+                                }
+                            (: let $new_node := element {local-name($parent)} {$parent/@*, $append} 	
+                            return
+                            if(local-name($parent) != 'scenario')
+                            then local:append-heirarchy($parent/parent::*, $new_node)
+                            else document { $new_node } :)
+                        };  
+                        declare function local:get-primary-renewable($outputs as node()*, $weighted_effs as node()*) as node()* {
+                        unordered { 	
+                        for $output in $outputs (:,
+                        $weighted_eff in $weighted_effs :)
+                        let $new_output :=  (: element tempParent { :)
+                        element input {
+                            attribute type {'input'},
+                            attribute name {$output/parent::*/following-sibling::keyword/@primary-renewable},
+                            element demand-physical {
+                                attribute vintage {$output/@vintage},
+                                attribute unit {$output/@unit},
+                                text { $output div $weighted_effs[@year=$output/@vintage] }
+                            }(: ,
+                            element keyword {
+                                attribute primary-consumption { (: if($output/parent::*/following-sibling::keyword[fn:exists(@primary-renewable)])
+                                            then :) $output/parent::*/following-sibling::keyword/@primary-renewable
+                                            (: else $output/parent::*/parent::*/@name :)
+                                }
+                            } :)
+                        (: } :)
+                        },
+                        $new_root := local:append-heirarchy($output/parent::*/parent::*, $new_output)
+                        (:where $output/@vintage = $weighted_eff/@year:)
+                        return $new_root//text()
+                        } 
+                        };
+                        declare function local:check-keyword($values as node()*) as node()* {
+                            unordered {
+                            for $value in $values
+                            let $input := $value/parent::*/parent::*,
+                                $keyword_name :=
+                                    (: if($input/following-sibling::keyword[fn:exists(@primary-consumption)])
+                                then :) $input/following-sibling::keyword/@primary-consumption
+                                (: else $input/@name :), 
+                                $new_parent := element {local-name($input)} {$input/@*, 
+                                $value/parent::*,
+                                    element keyword { attribute primary-consumption {$keyword_name} }
+                                    },
+                                $new_root := local:append-heirarchy($input/parent::*, $new_parent)
+                            return $new_root//text()
+                            }
+                        };
+                    
+                        declare function local:run-primary-energy($scenarios as xs:string*, $regions as xs:string*, $collection as xs:string) as node()* { 	
+                        (: unordered { :)
+                        let $regionsG := if(not($regions[1] = 'Global'))
+                                then $regions
+                                else distinct-values(collection($collection)/scenario/world/*[@type='region']/@name)
+                        return
+                        for $scenario in $scenarios, 	    
+                        $region in $regionsG 	
+                        let $scenario_split := tokenize($scenario, ' '),
+                        $scenario_name := string-join($scenario_split[position() < last()], ' '),
+                        $scenario_date := $scenario_split[last()],
+                        $currTree := collection($collection)/scenario[@name = $scenario_name and @date = $scenario_date]/world/*[@type = 'region' and @name=$region]
+                        return (: get renewables from electricity :)
+                        local:get-primary-renewable($currTree/*[@type='sector' (: collapse :) and (@name='electricity' or @name='elect_td_bld' or starts-with(@name,'elec_'))]//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output, local:get-weighted-eff($currTree/*[@type='sector' (: collapse :) and (@name='electricity' or starts-with(@name, 'elec_'))]//keyword[fn:exists(@average-fossil-efficiency)]/preceding-sibling::output-primary)) 
+                                    | (: get renewables from H2ProdCS :)
+                                    local:get-primary-renewable($currTree/supplysector[@name='H2 central production'](: /*[@type='subsector' (: collapse :) and fn:not(@name='electrolysis')] :)//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output, local:get-weighted-eff($currTree/supplysector[@name='H2 central production']//keyword[fn:exists(@average-fossil-efficiency)]/preceding-sibling::output-primary)) 
+                                    | (: get renewables from H2ProdDist :)
+                                    local:get-primary-renewable($currTree/supplysector[@name='H2 forecourt production'](: /*[@type='subsector' (: collapse :) and fn:not(@name='electrolysis')] :)//keyword[fn:exists(@primary-renewable)]/preceding-sibling::output-primary/physical-output, local:get-weighted-eff($currTree/supplysector[@name='H2 forecourt production']//keyword[fn:exists(@average-fossil-efficiency)]/preceding-sibling::output-primary)) 
+                                    | (: get the primaries :)
+                                    (: local:check-keyword( :) $currTree//keyword[fn:exists(@primary-consumption)]/preceding-sibling::*[@type='input' and not(contains(@name, 'water'))]/demand-physical/text() (: ) :)
+                                    | (: get traditional biomass :)
+                                    $currTree//*[@type='input' and @name='traditional biomass']/demand-physical/node()
+                            
+                        (: } :)
+            }; 
+                    local:run-primary-energy((:scenarios:), (:regions:), (:collection:))
+                    
+                
+                    ]]></xPath>
+        <comments/>
+        <labelRewriteList append-values="false">
+            <level name="input">
+                <rewrite from="H2 industrial" to=""/>
+                <rewrite from="traded RUS pipeline gas" to="b natural gas"/>
+                <rewrite from="traditional biomass" to="j traditional biomass"/>
+                <rewrite from="regional corn for ethanol" to="d biomass"/>
+                <rewrite from="regional biomassOil" to="d biomass"/>
+                <rewrite from="traded N.Amer pipeline gas" to="b natural gas"/>
+                <rewrite from="traded LNG" to="b natural gas"/>
+                <rewrite from="traded coal" to="c coal"/>
+                <rewrite from="solar-elect" to="h solar"/>
+                <rewrite from="woodpulp_energy" to="d biomass"/>
+                <rewrite from="elect_td_ind" to=""/>
+                <rewrite from="traded EUR pipeline gas" to="b natural gas"/>
+                <rewrite from="total biomass" to="d biomass"/>
+                <rewrite from="traded oil" to="a oil"/>
+                <rewrite from="nuclear-H2" to="e nuclear"/>
+                <rewrite from="exotic-elect" to="j breakthrough"/>
+                <rewrite from="wind-H2" to="g wind"/>
+                <rewrite from="biomass" to="d biomass"/>
+                <rewrite from="crude oil" to="a oil"/>
+                <rewrite from="nuclear-elect" to="e nuclear"/>
+                <rewrite from="solar-H2" to="h solar"/>
+                <rewrite from="regional natural gas" to=""/>
+                <rewrite from="traded unconventional oil" to="a oil"/>
+                <rewrite from="traded PAC pipeline gas" to="b natural gas"/>
+                <rewrite from="geothermal-elect" to="i geothermal"/>
+                <rewrite from="traded Afr_MidE pipeline gas" to="b natural gas"/>
+                <rewrite from="natural gas" to="b natural gas"/>
+                <rewrite from="wholesale gas" to=""/>
+                <rewrite from="hydro-elect" to="f hydro"/>
+                <rewrite from="traded natural gas" to="b natural gas"/>
+                <rewrite from="regional biomass" to="d biomass"/>
+                <rewrite from="coal" to="c coal"/>
+                <rewrite from="wind-elect" to="g wind"/>
+                <rewrite from="traded LA pipeline gas" to="b natural gas"/>
+            </level>
+        </labelRewriteList>
+        </supplyDemandQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <supplyDemandQuery title="elec gen by gen tech">
+        <axis1 name="technology">technology</axis1>
+        <axis2 name="Year">physical-output[@vintage]</axis2>
+        <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and
+                (@name='electricity' or @name='elect_td_bld' or @name='industrial energy use')]/
+                *[@type='subsector']/*[@type='technology' and not (@name='electricity' or @name='elect_td_bld')]/
+                *[@type='output' and (@name='electricity' or @name='elect_td_bld')]/
+                physical-output/node()</xPath>
+        <comments/>
+        </supplyDemandQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <supplyDemandQuery title="elec energy input by elec gen tech">
+        <axis1 name="input">input</axis1>
+        <axis2 name="Year">demand-physical[@vintage]</axis2>
+        <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and (@name='electricity' or @name='elect_td_bld' or
+                    contains(@name,'elec_')) and not(contains(@name, 'water_td'))]/
+                    *[@type='subsector' and not (@name='elect_td_bld')]/
+                    *[@type='technology' and not(@name='biomass (conv)' or @name='biomass (conv CCS)' or @name='biomass (IGCC)' or @name='biomass (IGCC CCS)'
+                                    or @name='coal (conv pul)' or @name='coal (conv pul CCS)' or @name='coal (IGCC)' or @name='coal (IGCC CCS)'
+                                    or @name='gas (steam/CT)' or @name='gas (CC)' or @name='gas (CC CCS)'
+                                    or @name='refined liquids (steam/CT)' or @name='refined liquids (CC)' or @name='refined liquids (CC CCS)'
+                                    or @name='geothermal' or @name='Gen_II_LWR' or @name='Gen_III'
+                                    or @name='CSP' or @name='CSP_storage')]/
+                    *[@type='input' and not( contains( @name, 'water')) and @name != 'oil-credits']/
+                    demand-physical/node()
+                    </xPath>
+        <comments/>
+        <labelRewriteList append-values="false">
+            <level name="sector">
+                <rewrite from="elec_Gen_III" to="electricity"/>
+                <rewrite from="elec_CSP_storage" to="electricity"/>
+                <rewrite from="elec_refined liquids (steam/CT)" to="electricity"/>
+                <rewrite from="elec_geothermal" to="electricity"/>
+                <rewrite from="elec_refined liquids (CC)" to="electricity"/>
+                <rewrite from="elec_biomass (conv CCS)" to="electricity"/>
+                <rewrite from="elec_Gen_II_LWR" to="electricity"/>
+                <rewrite from="elec_gas (steam/CT)" to="electricity"/>
+                <rewrite from="elec_biomass (IGCC CCS)" to="electricity"/>
+                <rewrite from="elec_coal (IGCC CCS)" to="electricity"/>
+                <rewrite from="elec_coal (IGCC)" to="electricity"/>
+                <rewrite from="elec_coal (conv pul CCS)" to="electricity"/>
+                <rewrite from="elec_gas (CC)" to="electricity"/>
+                <rewrite from="elec_biomass (IGCC)" to="electricity"/>
+                <rewrite from="elec_coal (conv pul)" to="electricity"/>
+                <rewrite from="elec_CSP" to="electricity"/>
+                <rewrite from="elec_gas (CC CCS)" to="electricity"/>
+                <rewrite from="elec_biomass (conv)" to="electricity"/>
+                <rewrite from="elec_refined liquids (CC CCS)" to="electricity"/>
+            </level>
+            <level name="subsector">
+                <rewrite from="gas (CC)" to="gas"/>
+                <rewrite from="CSP" to="solar"/>
+                <rewrite from="gas (CC CCS)" to="gas"/>
+                <rewrite from="coal (IGCC CCS)" to="coal"/>
+                <rewrite from="biomass (conv)" to="biomass"/>
+                <rewrite from="Gen_II_LWR" to="nuclear"/>
+                <rewrite from="coal (conv pul)" to="coal"/>
+                <rewrite from="coal (IGCC)" to="coal"/>
+                <rewrite from="biomass (conv CCS)" to="biomass"/>
+                <rewrite from="gas (steam/CT)" to="gas"/>
+                <rewrite from="CSP_storage" to="solar"/>
+                <rewrite from="biomass (IGCC)" to="biomass"/>
+                <rewrite from="Gen_III" to="nuclear"/>
+                <rewrite from="coal (conv pul CCS)" to="coal"/>
+                <rewrite from="refined liquids (CC)" to="refined liquids"/>
+                <rewrite from="biomass (IGCC CCS)" to="biomass"/>
+                <rewrite from="refined liquids (CC CCS)" to="refined liquids"/>
+                <rewrite from="refined liquids (steam/CT)" to="refined liquids"/>
+            </level>
+            <level name="technology">
+                <rewrite from="CSP (recirculating)" to="CSP"/>
+                <rewrite from="Gen_II_LWR (cooling pond)" to="Gen_II_LWR"/>
+                <rewrite from="refined liquids (CC CCS) (seawater)" to="refined liquids (CC CCS)"/>
+                <rewrite from="refined liquids (CC) (cooling pond)" to="refined liquids (CC)"/>
+                <rewrite from="Gen_III (once through)" to="Gen_III"/>
+                <rewrite from="coal (conv pul) (dry cooling)" to="coal (conv pul)"/>
+                <rewrite from="refined liquids (steam/CT) (seawater)" to="refined liquids (steam/CT)"/>
+                <rewrite from="biomass (IGCC CCS) (seawater)" to="biomass (IGCC CCS)"/>
+                <rewrite from="refined liquids (steam/CT) (recirculating)" to="refined liquids (steam/CT)"/>
+                <rewrite from="gas (CC) (seawater)" to="gas (CC)"/>
+                <rewrite from="biomass (IGCC) (once through)" to="biomass (IGCC)"/>
+                <rewrite from="refined liquids (steam/CT) (once through)" to="refined liquids (steam/CT)"/>
+                <rewrite from="biomass (IGCC CCS) (dry cooling)" to="biomass (IGCC CCS)"/>
+                <rewrite from="geothermal (recirculating)" to="geothermal"/>
+                <rewrite from="coal (conv pul CCS) (once through)" to="coal (conv pul CCS)"/>
+                <rewrite from="coal (conv pul CCS) (seawater)" to="coal (conv pul CCS)"/>
+                <rewrite from="coal (IGCC) (cooling pond)" to="coal (IGCC)"/>
+                <rewrite from="coal (conv pul CCS) (recirculating)" to="coal (conv pul CCS)"/>
+                <rewrite from="refined liquids (CC CCS) (once through)" to="refined liquids (CC CCS)"/>
+                <rewrite from="coal (IGCC CCS) (recirculating)" to="coal (IGCC CCS)"/>
+                <rewrite from="coal (IGCC) (recirculating)" to="coal (IGCC)"/>
+                <rewrite from="coal (IGCC CCS) (seawater)" to="coal (IGCC CCS)"/>
+                <rewrite from="coal (conv pul CCS) (dry cooling)" to="coal (conv pul CCS)"/>
+                <rewrite from="biomass (IGCC CCS) (once through)" to="biomass (IGCC CCS)"/>
+                <rewrite from="biomass (IGCC) (dry cooling)" to="biomass (IGCC)"/>
+                <rewrite from="gas (CC CCS) (seawater)" to="gas (CC CCS)"/>
+                <rewrite from="coal (IGCC) (seawater)" to="coal (IGCC)"/>
+                <rewrite from="Gen_II_LWR (once through)" to="Gen_II_LWR"/>
+                <rewrite from="refined liquids (CC) (recirculating)" to="refined liquids (CC)"/>
+                <rewrite from="gas (CC CCS) (once through)" to="gas (CC CCS)"/>
+                <rewrite from="refined liquids (steam/CT) (cooling pond)" to="refined liquids (steam/CT)"/>
+                <rewrite from="biomass (IGCC) (cooling pond)" to="biomass (IGCC)"/>
+                <rewrite from="Gen_III (cooling pond)" to="Gen_III"/>
+                <rewrite from="refined liquids (CC CCS) (cooling pond)" to="refined liquids (CC CCS)"/>
+                <rewrite from="coal (IGCC CCS) (dry cooling)" to="coal (IGCC CCS)"/>
+                <rewrite from="coal (conv pul CCS) (cooling pond)" to="coal (conv pul CCS)"/>
+                <rewrite from="biomass (conv CCS) (once through)" to="biomass (conv CCS)"/>
+                <rewrite from="coal (IGCC CCS) (cooling pond)" to="coal (IGCC CCS)"/>
+                <rewrite from="gas (CC) (recirculating)" to="gas (CC)"/>
+                <rewrite from="coal (conv pul) (recirculating)" to="coal (conv pul)"/>
+                <rewrite from="biomass (conv CCS) (seawater)" to="biomass (conv CCS)"/>
+                <rewrite from="biomass (conv CCS) (recirculating)" to="biomass (conv CCS)"/>
+                <rewrite from="Gen_III (recirculating)" to="Gen_III"/>
+                <rewrite from="Gen_II_LWR (recirculating)" to="Gen_II_LWR"/>
+                <rewrite from="gas (CC) (dry cooling)" to="gas (CC)"/>
+                <rewrite from="Gen_III (seawater)" to="Gen_III"/>
+                <rewrite from="coal (conv pul) (seawater)" to="coal (conv pul)"/>
+                <rewrite from="biomass (conv) (dry cooling)" to="biomass (conv)"/>
+                <rewrite from="gas (steam/CT) (once through)" to="gas (steam/CT)"/>
+                <rewrite from="biomass (IGCC CCS) (recirculating)" to="biomass (IGCC CCS)"/>
+                <rewrite from="gas (steam/CT) (recirculating)" to="gas (steam/CT)"/>
+                <rewrite from="CSP_storage (recirculating)" to="CSP_storage"/>
+                <rewrite from="biomass (conv) (seawater)" to="biomass (conv)"/>
+                <rewrite from="biomass (IGCC) (recirculating)" to="biomass (IGCC)"/>
+                <rewrite from="biomass (IGCC CCS) (cooling pond)" to="biomass (IGCC CCS)"/>
+                <rewrite from="gas (CC) (cooling pond)" to="gas (CC)"/>
+                <rewrite from="biomass (conv CCS) (cooling pond)" to="biomass (conv CCS)"/>
+                <rewrite from="biomass (conv) (cooling pond)" to="biomass (conv)"/>
+                <rewrite from="coal (conv pul) (once through)" to="coal (conv pul)"/>
+                <rewrite from="gas (CC CCS) (cooling pond)" to="gas (CC CCS)"/>
+                <rewrite from="CSP (dry_hybrid)" to="CSP"/>
+                <rewrite from="geothermal (dry_hybrid)" to="geothermal"/>
+                <rewrite from="refined liquids (CC) (dry cooling)" to="refined liquids (CC)"/>
+                <rewrite from="CSP_storage (dry_hybrid)" to="CSP_storage"/>
+                <rewrite from="refined liquids (CC) (once through)" to="refined liquids (CC)"/>
+                <rewrite from="gas (CC CCS) (recirculating)" to="gas (CC CCS)"/>
+                <rewrite from="coal (IGCC) (dry cooling)" to="coal (IGCC)"/>
+                <rewrite from="coal (IGCC) (once through)" to="coal (IGCC)"/>
+                <rewrite from="gas (CC CCS) (dry cooling)" to="gas (CC CCS)"/>
+                <rewrite from="refined liquids (steam/CT) (dry cooling)" to="refined liquids (steam/CT)"/>
+                <rewrite from="gas (steam/CT) (dry cooling)" to="gas (steam/CT)"/>
+                <rewrite from="coal (IGCC CCS) (once through)" to="coal (IGCC CCS)"/>
+                <rewrite from="biomass (conv) (recirculating)" to="biomass (conv)"/>
+                <rewrite from="biomass (IGCC) (seawater)" to="biomass (IGCC)"/>
+                <rewrite from="biomass (conv CCS) (dry cooling)" to="biomass (conv CCS)"/>
+                <rewrite from="biomass (conv) (once through)" to="biomass (conv)"/>
+                <rewrite from="refined liquids (CC CCS) (recirculating)" to="refined liquids (CC CCS)"/>
+                <rewrite from="Gen_II_LWR (seawater)" to="Gen_II_LWR"/>
+                <rewrite from="coal (conv pul) (cooling pond)" to="coal (conv pul)"/>
+                <rewrite from="refined liquids (CC CCS) (dry cooling)" to="refined liquids (CC CCS)"/>
+                <rewrite from="gas (steam/CT) (cooling pond)" to="gas (steam/CT)"/>
+                <rewrite from="gas (CC) (once through)" to="gas (CC)"/>
+                <rewrite from="refined liquids (CC) (seawater)" to="refined liquids (CC)"/>
+                <rewrite from="gas (steam/CT) (seawater)" to="gas (steam/CT)"/>
+            </level>
+        </labelRewriteList>
+        </supplyDemandQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <supplyDemandQuery title="final energy consumption by sector and fuel">
+        <axis1 name="input">input</axis1>
+        <axis2 name="Year">demand-physical[@vintage]</axis2>
+        <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' and ((@name='building' or @name='industry' or @name='transportation') or
+                (exists(child::keyword/@final-energy)))]//*[@type='input' and
+                not(@name='limestone' or @name='process heat cement' or @name='process heat food processing' or @name='industrial energy use' or @name='process heat paper' or @name='waste biomass for paper' or 
+                    @name='industrial feedstocks' or @name='renewable' or contains(@name, 'trn_') or @name='oil-credits')]/
+                demand-physical[@unit='EJ']/node()</xPath>
+        <comments/>
+        <labelRewriteList append-values="false">
+            <level name="input">
+                <rewrite from="elect_td_bld" to="electricity"/>
+                <rewrite from="regional coal" to="coal"/>
+                <rewrite from="H2 industrial" to="hydrogen"/>
+                <rewrite from="refined liquids enduse" to="refined liquids"/>
+                <rewrite from="elect_td_trn" to="electricity"/>
+                <rewrite from="delivered coal" to="coal"/>
+                <rewrite from="delivered gas" to="gas"/>
+                <rewrite from="wholesale gas" to="gas"/>
+                <rewrite from="H2 wholesale dispensing" to="hydrogen"/>
+                <rewrite from="H2 retail dispensing" to="hydrogen"/>
+                <rewrite from="regional biomass" to="biomass"/>
+                <rewrite from="H2 retail delivery" to="hydrogen"/>
+                <rewrite from="elect_td_ind" to="electricity"/>
+                <rewrite from="delivered biomass" to="biomass"/>
+                <rewrite from="refined liquids industrial" to="refined liquids"/>
+                <rewrite from="global solar resource" to="solar"/>
+                <rewrite from="H2 wholesale delivery" to="hydrogen"/>
+                <rewrite from="regional woodpulp for energy" to="biomass"/>
+            </level>
+        </labelRewriteList>
+        </supplyDemandQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <emissionsQueryBuilder title="CO2 emissions by region">
+        <axis1 name="region">region</axis1>
+        <axis2 name="Year">emissions</axis2>
+        <xPath buildList="true" dataName="emissions" group="false" sumAll="false">*[@type = 'sector' (:collapse:) or @type = 'resource' (:collapse:)](: / *[@type = 'subresource' (: collapse :)] :)//*[((@name='CO2' or @name = 'CO2_FUG'))]/emissions/node()</xPath>
+        <comments/>
+        </emissionsQueryBuilder>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <emissionsQueryBuilder title="nonCO2 emissions by region">
+        <axis1 name="GHG">GHG</axis1>
+        <axis2 name="Year">emissions</axis2>
+        <xPath buildList="true" dataName="emissions" group="false" sumAll="false">*[@type = 'sector' (:collapse:) or @type = 'resource' (:collapse:)](: / *[@type = 'subresource' (: collapse :)] :)//
+                *[@type = 'GHG' and @name != 'CO2' and @name != 'CO2_FUG']/emissions/node()</xPath>
+        <comments/>
+        <labelRewriteList append-values="false">
+            <level name="GHG">
+                <rewrite from="CO2_FUG" to="CO2"/>
+            </level>
+        </labelRewriteList>
+        </emissionsQueryBuilder>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <ClimateQuery title="CO2 concentrations">
+        <axis1 name="CO2-concentration">none</axis1>
+        <axis2 name="Year">CO2-concentration[@year]</axis2>
+        <xPath buildList="true" dataName="CO2-concentration" group="false" sumAll="false">climate-model/CO2-concentration/text()</xPath>
+        <comments/>
+        </ClimateQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <ClimateQuery title="total climate forcing">
+        <axis1 name="forcing-total">none</axis1>
+        <axis2 name="Year">forcing-total[@year]</axis2>
+        <xPath buildList="true" dataName="forcing-total" group="false" sumAll="false">climate-model/forcing-total/text()</xPath>
+        <comments/>
+        </ClimateQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <ClimateQuery title="global mean temperature">
+        <axis1 name="temperature">none</axis1>
+        <axis2 name="Year">global-mean-surface-temperature[@year]</axis2>
+        <xPath buildList="true" dataName="global-mean-temperature" group="false" sumAll="false">climate-model/global-mean-surface-temperature/text()</xPath>
+        <comments>Returns global mean surface temp anomaly relative to the 1850-1900 mean.
+        Also available is global mean air temperature; in both climate model native or relative to 1850-1900 mean.
+        A user can adjust the query to search for any of:
+        * global-mean-surface-temperature
+        * global-mean-air-temperature
+        * global-mean-surface-temperature-native
+        * global-mean-air-temperature-native</comments>
+        </ClimateQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <ClimateQuery title="net terrestrial C uptake">
+        <axis1 name="net-terrestrial-uptake">none</axis1>
+        <axis2 name="Year">net-terrestrial-uptake[@year]</axis2>
+        <xPath buildList="true" dataName="net-terrestrial-uptake" group="false" sumAll="false">climate-model/net-terrestrial-uptake/text()</xPath>
+        <comments/>
+        </ClimateQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <demographicsQuery title="population by region">
+        <axis1 name="region">region</axis1>
+        <axis2 name="Year">populationMiniCAM</axis2>
+        <xPath buildList="true" dataName="total-population" group="false" sumAll="false">demographics/populationMiniCAM/total-population/node()</xPath>
+        <comments/>
+        </demographicsQuery>
+    </aquery>
+    <aquery>
+        <region name = "Pakistan"/>
+        <gdpQueryBuilder title="GDP MER by region">
+        <axis1 name="region">region</axis1>
+        <axis2 name="Year">nationalAccount[@year]</axis2>
+        <xPath buildList="true" dataName="gdp-mer" group="false" sumAll="false">nationalAccount/account[@name = 'GDP']/node()</xPath>
+        <comments/>
+        </gdpQueryBuilder>
+    </aquery>
+</queries>

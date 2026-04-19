@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_co2_constraint_ndc_cond.xml
+     NDC Conditional emissions constraint for Pakistan.
+     Caps E&IP CO2 at 50% of CM baseline (2030 and 2035), flat hold after.
+     Units: MTC (million tonnes carbon). Conversion: Mt CO2 * 12/44 = MTC.
+
+     UPDATED with tuned CM v0 run values (2026-04-17).
+
+     CM E&IP (Mt CO2): 2025=243.48, 2030=291.32, 2035=347.03
+     Formula:
+       2030: 0.50 × 291.32 × 12/44 = 39.726 MTC
+       2035: 0.50 × 347.03 × 12/44 = 47.322 MTC
+       2040+: same as 2035 (flat hold)
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="CO2">
+                <market>Pakistan</market>
+                <constraint year="2030">39.726</constraint>
+                <constraint year="2035">47.322</constraint>
+                <constraint year="2040">47.322</constraint>
+                <constraint year="2045">47.322</constraint>
+                <constraint year="2050">47.322</constraint>
+                <constraint year="2055">47.322</constraint>
+                <constraint year="2060">47.322</constraint>
+                <constraint year="2065">47.322</constraint>
+                <constraint year="2070">47.322</constraint>
+                <constraint year="2075">47.322</constraint>
+                <constraint year="2080">47.322</constraint>
+                <constraint year="2085">47.322</constraint>
+                <constraint year="2090">47.322</constraint>
+                <constraint year="2095">47.322</constraint>
+                <constraint year="2100">47.322</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>

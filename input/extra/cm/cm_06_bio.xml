@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_06_bio.xml
+     Current Measures: Boost Pakistan biomass subsector share-weight.
+     ITERATION 2 — aggressive tuning based on v2 gap analysis.
+     CONTEXT: Bio gen target = 0.083 GWa. CM got 0.049 GWa (-41% UNDER, WIDENING).
+              Bio share shrank because fossil reduction shifted gen to solar/wind,
+              crowding out biomass. Need to overcompensate.
+              Ratio: 0.083/0.049 × 1.3 = 2.20 → going 2.5 (aggressive).
+     METHOD: Increase bio share-weight to 2.5 (was 1.3).
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="biomass" nocreate="1">
+          <share-weight year="2025">2.5</share-weight>
+          <share-weight year="2030">2.5</share-weight>
+          <share-weight year="2035">2.5</share-weight>
+          <share-weight fillout="1" year="2040">2.5</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

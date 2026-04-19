@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_01_hydro.xml
+     Current Measures: Increase Pakistan hydro fixedOutput to match MESSAGE target.
+     TARGET: 4.555 GWa (0.1437 EJ) in 2025.
+     METHOD: Scale baseline fixedOutput by 1.148x (ratio of target/baseline for 2025),
+             applied uniformly to all future years.
+     SOURCE: Baseline from electricity_water.xml (Pakistan, line ~147125).
+             Target from scenarios_lums.csv (Hydropower, Total Annual Activity, 2025).
+     SAFE: fixedOutput is exogenous — no model coupling risk.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <subsector name="hydro" nocreate="1">
+          <stub-technology name="hydro" nocreate="1">
+            <period year="2025">
+              <fixedOutput>0.143679</fixedOutput>
+            </period>
+            <period year="2030">
+              <fixedOutput>0.149969</fixedOutput>
+            </period>
+            <period year="2035">
+              <fixedOutput>0.156259</fixedOutput>
+            </period>
+            <period year="2040">
+              <fixedOutput>0.162549</fixedOutput>
+            </period>
+            <period year="2045">
+              <fixedOutput>0.168839</fixedOutput>
+            </period>
+            <period year="2050">
+              <fixedOutput>0.175129</fixedOutput>
+            </period>
+            <period year="2055">
+              <fixedOutput>0.181419</fixedOutput>
+            </period>
+            <period year="2060">
+              <fixedOutput>0.187709</fixedOutput>
+            </period>
+            <period year="2065">
+              <fixedOutput>0.193999</fixedOutput>
+            </period>
+            <period year="2070">
+              <fixedOutput>0.200289</fixedOutput>
+            </period>
+            <period year="2075">
+              <fixedOutput>0.206579</fixedOutput>
+            </period>
+            <period year="2080">
+              <fixedOutput>0.212869</fixedOutput>
+            </period>
+            <period year="2085">
+              <fixedOutput>0.219159</fixedOutput>
+            </period>
+            <period year="2090">
+              <fixedOutput>0.225449</fixedOutput>
+            </period>
+            <period year="2095">
+              <fixedOutput>0.231739</fixedOutput>
+            </period>
+            <period year="2100">
+              <fixedOutput>0.238029</fixedOutput>
+            </period>
+          </stub-technology>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

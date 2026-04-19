@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration_ndc_uncond_uct_v1_ts_decl.xml
+     NDCUncond_EnergyAg scenario for Pakistan inter-model comparison.
+     Based on configuration_ref.xml with:
+       1. scenarioName = CurrentMeasures
+       2. stop-year = 2100 (full model horizon)
+       3. CM add-on XMLs appended after solver (loaded AFTER base data)
+       4. Same database (database_basexdb) so all scenarios are co-located
+
+     Add-on modules (in priority/safety order):
+       cm_01_hydro_v1.xml        — fixedOutput override (safest)
+       cm_02_solar_v1.xml        — boost solar share-weight
+       cm_03_wind_v1.xml         — reduce wind share-weight
+       cm_04_nuclear_v1.xml      — boost nuclear share-weight
+       cm_05_fossil_reduce_v1.xml — reduce coal/gas/oil share-weights (riskiest for elec)
+       cm_06_bio_v1.xml          — small biomass boost
+       cm_07_ev_v1.xml           — boost BEV share-weights for 4W + 2W/3W
+
+			Emissions policy: NDCUncond_EnergyAg
+			<Value name = "co2_constraint">../input/extra/policy/pak_co2_constraint_ndc_uncond_v1_ts_decl.xml</Value>
+			CO2_LUC link: must come AFTER constraint XML
+			<Value name = "co2luc_link">../input/extra/policy/pak_co2luc_uct.xml</Value>
+
+     If model fails to solve, remove modules BOTTOM-UP (cm_06 first, then cm_05, etc.)
+     to isolate the problematic change. cm_05 (fossil reduction) is the most likely
+     cause of solution failure.
+-->
 <Configuration>
 	<Files>
 		<Value name="xmlInputFileName">../input/gcamdata/xml/modeltime.xml</Value>
@@ -18,7 +44,7 @@
 	<ScenarioComponents>
         <Value name = "climate">../input/gcamdata/xml/hector.xml</Value>
 		<Value name = "socioeconomics">../input/gcamdata/xml/socioeconomics_CORE.xml</Value>
-		<Value name = "socioeconomics_income_elas">../input/gcamdata/xml/socioeconomics_incelas_ssp2.xml</Value> 
+		<Value name = "socioeconomics_income_elas">../input/gcamdata/xml/socioeconomics_incelas_ssp2.xml</Value>
 		<Value name = "resources">../input/gcamdata/xml/resources.xml</Value>
 		<Value name = "energy_supply">../input/gcamdata/xml/en_supply.xml</Value>
 		<Value name = "energy_transformation">../input/gcamdata/xml/en_transformation.xml</Value>
@@ -33,7 +59,7 @@
  		<Value name = "chemical">../input/gcamdata/xml/chemical.xml</Value>
  		<Value name = "aluminum">../input/gcamdata/xml/aluminum.xml</Value>
  		<Value name = "paper">../input/gcamdata/xml/paper.xml</Value>
-		<Value name = "food_processing">../input/gcamdata/xml/food_processing.xml</Value> 
+		<Value name = "food_processing">../input/gcamdata/xml/food_processing.xml</Value>
 		<Value name = "cement">../input/gcamdata/xml/cement.xml</Value>
 		<Value name = "fertilizer_energy">../input/gcamdata/xml/en_Fert.xml</Value>
 		<Value name = "hddcdd">../input/gcamdata/xml/HDDCDD_constdd_no_GCM.xml</Value>
@@ -85,16 +111,16 @@
 		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT.xml</Value>
 		<Value name = "nonco2_aglu_prot">../input/gcamdata/xml/all_protected_unmgd_emissions.xml</Value>
 		<Value name = "nonco2_em_controls">../input/gcamdata/xml/emission_factor_controls.xml</Value>
-		<Value name = "nonco2_TradBio">../input/gcamdata/xml/ssp2_emissions_factors_tradBio.xml</Value> 
-		
+		<Value name = "nonco2_TradBio">../input/gcamdata/xml/ssp2_emissions_factors_tradBio.xml</Value>
+
 		<!-- Global nonCO2 GHG MAC files -->
 		<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions_MAC.xml</Value>
 		<Value name = "nonco2_fgas">../input/gcamdata/xml/all_fgas_emissions_MAC.xml</Value>
-		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT_MAC.xml</Value> 
-		<Value name = "nonco2_proc">../input/gcamdata/xml/ind_urb_processing_sectors_MAC.xml</Value> 
+		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT_MAC.xml</Value>
+		<Value name = "nonco2_proc">../input/gcamdata/xml/ind_urb_processing_sectors_MAC.xml</Value>
 
 		<Value name = "macro">../input/gcamdata/xml/socioeconomics_macro.xml</Value>
-		
+
 		<Value name = "bio_feedstock_limit">../input/gcamdata/xml/liquids_limits.xml</Value>
 		<Value name = "bio_elec_w_feed_limit">../input/gcamdata/xml/water_elec_liquids_limits.xml</Value>
 		<Value name = "bio_externality">../input/gcamdata/xml/bio_externality.xml</Value>
@@ -103,10 +129,27 @@
         <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
 
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
-		
+
+		<!-- ============================================================ -->
+		<!-- Current Measures add-ons (Pakistan electricity sector)        -->
+		<!-- Order: safest first. Remove bottom-up if model fails.        -->
+		<!-- ============================================================ -->
+		<Value name = "cm_hydro">../input/extra/cm/cm_01_hydro_v1.xml</Value>
+		<Value name = "cm_solar">../input/extra/cm/cm_02_solar_v1.xml</Value>
+		<Value name = "cm_wind">../input/extra/cm/cm_03_wind_v1.xml</Value>
+		<Value name = "cm_nuclear">../input/extra/cm/cm_04_nuclear_v1.xml</Value>
+		<Value name = "cm_fossil">../input/extra/cm/cm_05_fossil_reduce_v1.xml</Value>
+		<Value name = "cm_bio">../input/extra/cm/cm_06_bio_v1.xml</Value>
+		<Value name = "cm_ev">../input/extra/cm/cm_07_ev_v1.xml</Value>
+
+			<!-- Emissions policy: NDCUncond_EnergyAg -->
+			<Value name = "co2_constraint">../input/extra/policy/pak_co2_constraint_ndc_uncond_v1_ts_decl.xml</Value>
+			<!-- CO2_LUC link: must come AFTER constraint XML -->
+			<Value name = "co2luc_link">../input/extra/policy/pak_co2luc_uct.xml</Value>
+
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">Reference</Value>
+		<Value name="scenarioName">NDCUncond_EnergyAg_TSDECL</Value>
 		<Value name="debug-region">Pakistan</Value>
 		<Value name="AbatedGasForCostCurves">CO2</Value>
 	</Strings>
@@ -131,7 +174,7 @@
 		<Value name="numPointsForCO2CostCurve">5</Value>
 		<Value name="carbon-output-start-year">1705</Value>
 		<Value name="stop-period">-1</Value>
-		<Value name="stop-year">-1</Value>
+		<Value name="stop-year">2100</Value>
 		<Value name="restart-period">-1</Value>
 		<Value name="restart-year">-1</Value>
 		<Value name="xmldb-buffer-size">100</Value>
