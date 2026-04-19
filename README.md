@@ -1,3 +1,17 @@
+# Global Change Analysis Model: Pakistan
+
+This is the core respository for the regionally fine-tuned version of the GCAM model code, data, and documentation for Pakistan's energy-water-land-climate-socioeconomic scenario analysis. 
+
+
+**Efforts**
+- **_Climate-Energy_**: Pakistan-specific adjustments to generate Reference, Current Measures, NDC Unconditional, NDC Conditional, and Net Zero scenarios for GCAM-MESSAGEix multi-model study. Includes PakNewEVs transport policy implementation. Branch: `gcam-message-ndcs`
+
+
+Contact: hassan.niazi@pnnl.gov 
+
+
+---
+
 # Global Change Analysis Model (GCAM)
 
 The Joint Global Change Research Institute (JGCRI) of the Pacific 
