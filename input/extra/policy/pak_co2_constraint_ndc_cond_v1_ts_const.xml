@@ -2,27 +2,27 @@
 <!-- pak_co2_constraint_ndc_cond_v1_ts_const.xml
      Time-series constant multiplier variant.
      Each period: mult x CM_period x 12/44. NDCC: 0.50 (2030+).
-     Generated 2026-04-17. -->
+     Generated 2026-04-23. -->
 <scenario>
     <world>
         <region name="Pakistan">
             <ghgpolicy name="CO2">
                 <market>Pakistan</market>
-                <constraint year="2030">39.408</constraint>
-                <constraint year="2035">46.825</constraint>
-                <constraint year="2040">56.513</constraint>
-                <constraint year="2045">68.666</constraint>
-                <constraint year="2050">81.291</constraint>
-                <constraint year="2055">93.388</constraint>
-                <constraint year="2060">109.574</constraint>
-                <constraint year="2065">126.874</constraint>
-                <constraint year="2070">144.794</constraint>
-                <constraint year="2075">162.436</constraint>
-                <constraint year="2080">178.694</constraint>
-                <constraint year="2085">192.717</constraint>
-                <constraint year="2090">206.329</constraint>
-                <constraint year="2095">219.186</constraint>
-                <constraint year="2100">231.264</constraint>
+                <constraint year="2030">37.664</constraint>
+                <constraint year="2035">44.137</constraint>
+                <constraint year="2040">52.934</constraint>
+                <constraint year="2045">64.203</constraint>
+                <constraint year="2050">76.037</constraint>
+                <constraint year="2055">87.996</constraint>
+                <constraint year="2060">102.426</constraint>
+                <constraint year="2065">118.016</constraint>
+                <constraint year="2070">134.073</constraint>
+                <constraint year="2075">149.755</constraint>
+                <constraint year="2080">164.181</constraint>
+                <constraint year="2085">176.707</constraint>
+                <constraint year="2090">188.677</constraint>
+                <constraint year="2095">200.089</constraint>
+                <constraint year="2100">210.702</constraint>
             </ghgpolicy>
         </region>
     </world>

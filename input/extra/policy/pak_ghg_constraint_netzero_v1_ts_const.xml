@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_ghg_constraint_netzero_v1_ts_const.xml
+     Net Zero ALL-GHG constraint for Pakistan.
+     Linear decline: fraction of each period CM Kyoto Gases to 0 at 2050.
+     Units: Mt CO2e.
+     Generated 2026-04-23.
+
+     SOLVER NOTE: constraint=0 for ALL GHGs is extremely aggressive.
+     If solver fails, try near-zero (e.g., 10 Mt CO2e) at 2050.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="GHG">
+                <market>Pakistan</market>
+                <constraint year="2030">519.609</constraint>
+                <constraint year="2035">446.063</constraint>
+                <constraint year="2040">344.230</constraint>
+                <constraint year="2045">200.537</constraint>
+                <constraint year="2050">0.000</constraint>
+                <constraint year="2055">0.000</constraint>
+                <constraint year="2060">0.000</constraint>
+                <constraint year="2065">0.000</constraint>
+                <constraint year="2070">0.000</constraint>
+                <constraint year="2075">0.000</constraint>
+                <constraint year="2080">0.000</constraint>
+                <constraint year="2085">0.000</constraint>
+                <constraint year="2090">0.000</constraint>
+                <constraint year="2095">0.000</constraint>
+                <constraint year="2100">0.000</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

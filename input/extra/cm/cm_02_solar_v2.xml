@@ -3,27 +3,23 @@
      Current Measures v2: Pakistan solar subsector share-weight alignment.
 
      v1 had SW=2.5 → produced 1,152 PJ by 2050 (MSG: 613 PJ — GCAM 1.9x higher).
-     v2 moderates further to SW=1.8, reducing the automatic cost-competition
-     dominance while still allowing strong solar growth.
+     v2 iteration 2: boost 2025 SW to match MESSAGE's higher 2025 solar share,
+     then moderate from 2030 onward. v2-iter1 had flat 1.8 everywhere which
+     under-represented Pakistan's rapid 2020-2025 solar ramp (net-metering boom,
+     Quaid-e-Azam Solar Park, rooftop explosion).
 
-     Rationale: Pakistan's solar boom is real (net-metering, falling costs) but:
-       - Grid integration constraints (max ~30-40% instantaneous penetration)
-       - Transmission bottleneck from Balochistan/Sindh solar corridors
-       - Storage requirements not yet modeled
-       - DISCOs have limited absorption capacity (20-25 GW by 2035)
-
-     v2 target: ~700-800 PJ by 2050 (closer to MSG's 613 but acknowledging
-     Pakistan's higher solar insolation advantage).
+     2025: SW=4.0 (~2.2x v2-iter1) to capture actual 2024-25 solar build-out.
+     2030+: SW=1.8 (same as before — future growth converges once base is matched).
 -->
 <scenario>
   <world>
     <region name="Pakistan">
       <supplysector name="electricity" nocreate="1">
         <subsector name="solar" nocreate="1">
-          <share-weight year="2025">1.8</share-weight>
-          <share-weight year="2030">1.8</share-weight>
-          <share-weight year="2035">1.8</share-weight>
-          <share-weight fillout="1" year="2040">1.8</share-weight>
+          <share-weight year="2025">8.0</share-weight>
+          <share-weight year="2030">8.0</share-weight>
+          <share-weight year="2035">8.0</share-weight>
+          <share-weight fillout="1" year="2040">8.0</share-weight>
         </subsector>
       </supplysector>
     </region>

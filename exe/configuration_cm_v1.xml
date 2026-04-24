@@ -8,7 +8,7 @@
        - cm_02_solar_v1: SW 3.5 → 2.5 (more realistic growth)
        - cm_03_wind_v1:  same as v0
        - cm_04_nuclear_v1: SW 2.5 → 1.8/1.5/1.2 taper (planned projects only)
-       - cm_05_fossil_reduce_v1: coal 0.50, gas 0.65, oil 0.06 (less aggressive)
+       - cm_05_fossils_v1: coal 0.50, gas 0.65, oil 0.06 (less aggressive)
        - cm_06_bio_v1: same as v0
        - cm_07_ev_v1: much stronger EV push (NEV policy), adds Bus + Freight
 
@@ -127,7 +127,7 @@
 		<Value name = "cm_solar">../input/extra/cm/cm_02_solar_v1.xml</Value>
 		<Value name = "cm_wind">../input/extra/cm/cm_03_wind_v1.xml</Value>
 		<Value name = "cm_nuclear">../input/extra/cm/cm_04_nuclear_v1.xml</Value>
-		<Value name = "cm_fossil">../input/extra/cm/cm_05_fossil_reduce_v1.xml</Value>
+		<Value name = "cm_fossil">../input/extra/cm/cm_05_fossils_v1.xml</Value>
 		<Value name = "cm_bio">../input/extra/cm/cm_06_bio_v1.xml</Value>
 		<Value name = "cm_ev">../input/extra/cm/cm_07_ev_v1.xml</Value>
 

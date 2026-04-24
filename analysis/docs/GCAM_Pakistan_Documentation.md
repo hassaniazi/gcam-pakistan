@@ -179,7 +179,7 @@ Reference (base GCAM)
   + cm_02_solar_v1.xml         → solar share-weight (SW=2.5)
   + cm_03_wind_v1.xml          → wind share-weight (SW=0.45→1.0)
   + cm_04_nuclear_v1.xml       → nuclear share-weight (SW=1.8→0.8)
-  + cm_05_fossil_reduce_v1.xml → coal/gas/oil share-weight reductions
+  + cm_05_fossils_v1.xml → coal/gas/oil share-weight reductions
   + cm_06_bio_v1.xml           → biomass share-weight (SW=2.5)
   + cm_07_ev_v1.xml            → EV/BEV share-weights across transport modes
   = Current Measures (CM) scenario
@@ -224,7 +224,7 @@ Hydro is modeled via `fixedOutput` (exogenous generation in EJ), not share-weigh
   - Realistic CM ceiling: ~6–8 GW by 2050
 - GCAM baseline suppresses nuclear SW from 1.0 down to 0.075 by 2035, so values >1 are needed just to maintain current share
 
-#### cm_05_fossil_reduce_v1.xml — Fossil Fuel Reduction
+#### cm_05_fossils_v1.xml — Fossil Fuel Reduction
 Reduces share-weights for coal, gas, and oil to reflect the phase-down in new fossil capacity:
 
 | Fuel | 2025 SW | 2050 SW | v0 comparison | Rationale |
@@ -256,7 +256,7 @@ Implements Pakistan's NEV (New Energy Vehicle) Policy 2025-2030 across all trans
 
 - **v0 (initial):** First calibration attempt. Solar too high (SW=3.5), nuclear too high (SW=2.5), fossil reduction too aggressive. Results diverged significantly from targets.
 - **v1 (current working version):** Moderated all share-weights based on v0 results. Solar 3.5→2.5, nuclear 2.5→1.8, fossil less aggressive. This is the version used for all 6 scenario runs in the final output.
-- **v2 (transport enhancement, NOT YET RUN):** Added ICE suppression in transport (`cm_07_ev_v2.xml`) to address the persistent transport electrification gap vs MESSAGEix. Also includes `cm_02_solar_v2.xml` and `cm_05_fossil_reduce_v2.xml` with further tuning.
+- **v2 (transport enhancement, NOT YET RUN):** Added ICE suppression in transport (`cm_07_ev_v2.xml`) to address the persistent transport electrification gap vs MESSAGEix. Also includes `cm_02_solar_v2.xml` and `cm_05_fossils_v2.xml` with further tuning.
 
 ---
 
@@ -660,7 +660,7 @@ Rscript scenario_targets_check.R
 | cm_02_solar_v1.xml | Solar | share-weight: 2.5 (constant) |
 | cm_03_wind_v1.xml | Wind | share-weight: 0.45→1.0 |
 | cm_04_nuclear_v1.xml | Nuclear | share-weight: 1.8→0.8 |
-| cm_05_fossil_reduce_v1.xml | Coal/Gas/Oil | SW: Coal 0.50→0.35, Gas 0.65→0.45, Oil 0.06→0.03 |
+| cm_05_fossils_v1.xml | Coal/Gas/Oil | SW: Coal 0.50→0.35, Gas 0.65→0.45, Oil 0.06→0.03 |
 | cm_06_bio_v1.xml | Biomass | share-weight: 2.5 (constant) |
 | cm_07_ev_v1.xml | Transport EVs | BEV SW: 2W/3W up to 8.0, 4W up to 7.0 |
 

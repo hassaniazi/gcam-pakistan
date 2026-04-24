@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_ghg_constraint_ndc_uncond_v1_ts_const.xml
+     NDC Unconditional ALL-GHG constraint for Pakistan.
+     Applies to total Kyoto Gases (CO2 + CH4 + N2O + F-gases).
+     Time-series: mult x CM_period Kyoto Gases.
+     NDCU: 0.85 (2030), 0.83 (2035+).
+     Units: Mt CO2e. Linked gases convert via GWP demand-adjust.
+     CM baseline: CurrentMeasuresV2 (gcam_output_iamc_all_v2_standardized.xlsx).
+     Generated 2026-04-23.
+
+     REQUIRES: pak_linked_ghg_policy.xml loaded AFTER this file.
+     Unlike CO2-only constraints, this uses <ghgpolicy name="GHG"> which
+     creates a multi-gas market. Individual gases are linked via demand-adjust
+     (GWP100) so the constraint binds on total CO2-equivalent emissions.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="GHG">
+                <market>Pakistan</market>
+                <constraint year="2030">552.085</constraint>
+                <constraint year="2035">617.054</constraint>
+                <constraint year="2040">714.278</constraint>
+                <constraint year="2045">832.228</constraint>
+                <constraint year="2050">960.969</constraint>
+                <constraint year="2055">1092.927</constraint>
+                <constraint year="2060">1246.892</constraint>
+                <constraint year="2065">1409.785</constraint>
+                <constraint year="2070">1574.474</constraint>
+                <constraint year="2075">1647.809</constraint>
+                <constraint year="2080">1787.850</constraint>
+                <constraint year="2085">1911.265</constraint>
+                <constraint year="2090">2025.156</constraint>
+                <constraint year="2095">2130.339</constraint>
+                <constraint year="2100">2225.144</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

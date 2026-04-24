@@ -234,7 +234,7 @@ Based on this comparison, the following adjustments would bring GCAM-CM closer t
 
 **Problem**: GCAM-CM coal is 404 PJ by 2050 vs MSG's 1,056 PJ. The CM share-weight (0.35) over-suppresses coal relative to committed CPEC projects and Pakistan's actual coal expansion plans (Thar mines, Hub, Port Qasim).
 
-**Action**: In `cm_05_fossil_reduce.xml`:
+**Action**: In `cm_05_fossils.xml`:
 - Increase coal share-weight from 0.35 → 0.55 (or higher)
 - Check: does this bring coal gen to ~500–700 PJ by 2050? (Doesn't need to match MSG's 1,056 fully — that seems very high)
 - Consider: what committed coal capacity exists? NEPRA data shows ~5 GW installed, ~2 GW under construction
@@ -244,7 +244,7 @@ Based on this comparison, the following adjustments would bring GCAM-CM closer t
 
 **Problem**: GCAM-CM gas is 467 PJ by 2050 vs MSG's 1,116 PJ. Pakistan has ~15 GW of gas capacity and active LNG import infrastructure.
 
-**Action**: In `cm_05_fossil_reduce.xml`:
+**Action**: In `cm_05_fossils.xml`:
 - Increase gas share-weight from 0.55 → 0.70
 - Target: ~600–800 PJ by 2050
 
@@ -324,8 +324,8 @@ Update constraint XMLs:
 | File | Current | Proposed | Target Outcome |
 |------|---------|----------|----------------|
 | `cm_04_nuclear.xml` | SW = 2.5 | SW = 1.2 (2025), 0.5 (2035+) | Nuclear ~150 PJ by 2050 |
-| `cm_05_fossil_reduce.xml` (coal) | SW = 0.35 | SW = 0.55 | Coal ~500–700 PJ by 2050 |
-| `cm_05_fossil_reduce.xml` (gas) | SW = 0.55 | SW = 0.70 | Gas ~600–800 PJ by 2050 |
+| `cm_05_fossils.xml` (coal) | SW = 0.35 | SW = 0.55 | Coal ~500–700 PJ by 2050 |
+| `cm_05_fossils.xml` (gas) | SW = 0.55 | SW = 0.70 | Gas ~600–800 PJ by 2050 |
 | `cm_02_solar.xml` | SW = 3.5 | SW = 2.0–2.5 | Solar ~700–900 PJ by 2050 |
 | `cm_07_ev.xml` | (current) | Increase BEV SW | Transport elec ~300–400 PJ by 2050 |
 | `cm_01_hydro.xml` | fixedOutput = 0.1437 EJ | Add 2035+ values | Hydro ~194 PJ by 2050 |

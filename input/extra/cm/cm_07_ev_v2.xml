@@ -41,8 +41,8 @@
         <!-- Car BEV -->
         <tranSubsector name="Car" nocreate="1">
           <stub-technology name="BEV" nocreate="1">
-            <period year="2025"><share-weight>2.0</share-weight></period>
-            <period year="2030"><share-weight>8.0</share-weight></period>
+            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2030"><share-weight>4.0</share-weight></period>
             <period year="2035"><share-weight>12.0</share-weight></period>
             <period year="2040"><share-weight>15.0</share-weight></period>
             <period year="2045"><share-weight>15.0</share-weight></period>
@@ -60,7 +60,7 @@
           </stub-technology>
           <!-- Car ICE suppression -->
           <stub-technology name="Liquids" nocreate="1">
-            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2025"><share-weight>2.0</share-weight></period>
             <period year="2030"><share-weight>0.7</share-weight></period>
             <period year="2035"><share-weight>0.5</share-weight></period>
             <period year="2040"><share-weight>0.3</share-weight></period>
@@ -81,7 +81,7 @@
         <!-- Large Car and Truck BEV -->
         <tranSubsector name="Large Car and Truck" nocreate="1">
           <stub-technology name="BEV" nocreate="1">
-            <period year="2025"><share-weight>2.0</share-weight></period>
+            <period year="2025"><share-weight>4.0</share-weight></period>
             <period year="2030"><share-weight>8.0</share-weight></period>
             <period year="2035"><share-weight>12.0</share-weight></period>
             <period year="2040"><share-weight>15.0</share-weight></period>
@@ -100,7 +100,7 @@
           </stub-technology>
           <!-- Large Car ICE suppression -->
           <stub-technology name="Liquids" nocreate="1">
-            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2025"><share-weight>2.0</share-weight></period>
             <period year="2030"><share-weight>0.7</share-weight></period>
             <period year="2035"><share-weight>0.5</share-weight></period>
             <period year="2040"><share-weight>0.3</share-weight></period>
@@ -121,7 +121,7 @@
         <!-- Mini Car BEV -->
         <tranSubsector name="Mini Car" nocreate="1">
           <stub-technology name="BEV" nocreate="1">
-            <period year="2025"><share-weight>2.0</share-weight></period>
+            <period year="2025"><share-weight>4.0</share-weight></period>
             <period year="2030"><share-weight>8.0</share-weight></period>
             <period year="2035"><share-weight>12.0</share-weight></period>
             <period year="2040"><share-weight>15.0</share-weight></period>
@@ -140,7 +140,7 @@
           </stub-technology>
           <!-- Mini Car ICE suppression -->
           <stub-technology name="Liquids" nocreate="1">
-            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2025"><share-weight>2.0</share-weight></period>
             <period year="2030"><share-weight>0.7</share-weight></period>
             <period year="2035"><share-weight>0.5</share-weight></period>
             <period year="2040"><share-weight>0.3</share-weight></period>
@@ -167,7 +167,7 @@
       <supplysector name="trn_pass_road_LDV" nocreate="1">
         <tranSubsector name="2W and 3W" nocreate="1">
           <stub-technology name="BEV" nocreate="1">
-            <period year="2025"><share-weight>3.0</share-weight></period>
+            <period year="2025"><share-weight>2.0</share-weight></period>
             <period year="2030"><share-weight>10.0</share-weight></period>
             <period year="2035"><share-weight>14.0</share-weight></period>
             <period year="2040"><share-weight>18.0</share-weight></period>
@@ -186,7 +186,7 @@
           </stub-technology>
           <!-- 2W/3W ICE suppression -->
           <stub-technology name="Liquids" nocreate="1">
-            <period year="2025"><share-weight>1.0</share-weight></period>
+            <period year="2025"><share-weight>2.0</share-weight></period>
             <period year="2030"><share-weight>0.6</share-weight></period>
             <period year="2035"><share-weight>0.4</share-weight></period>
             <period year="2040"><share-weight>0.2</share-weight></period>

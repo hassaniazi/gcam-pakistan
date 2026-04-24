@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_ghg_constraint_ndc_cond_v1_ts_const.xml
+     NDC Conditional ALL-GHG constraint for Pakistan.
+     Time-series: mult x CM_period Kyoto Gases. NDCC: 0.50 (2030+).
+     Units: Mt CO2e.
+     Generated 2026-04-23. -->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <ghgpolicy name="GHG">
+                <market>Pakistan</market>
+                <constraint year="2030">324.756</constraint>
+                <constraint year="2035">371.719</constraint>
+                <constraint year="2040">430.288</constraint>
+                <constraint year="2045">501.342</constraint>
+                <constraint year="2050">578.897</constraint>
+                <constraint year="2055">658.390</constraint>
+                <constraint year="2060">751.140</constraint>
+                <constraint year="2065">849.268</constraint>
+                <constraint year="2070">948.478</constraint>
+                <constraint year="2075">1044.901</constraint>
+                <constraint year="2080">1133.703</constraint>
+                <constraint year="2085">1211.963</constraint>
+                <constraint year="2090">1284.182</constraint>
+                <constraint year="2095">1350.881</constraint>
+                <constraint year="2100">1410.998</constraint>
+            </ghgpolicy>
+        </region>
+    </world>
+</scenario>
+

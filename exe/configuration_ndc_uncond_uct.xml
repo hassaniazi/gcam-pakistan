@@ -12,7 +12,7 @@
        cm_02_solar.xml        — boost solar share-weight
        cm_03_wind.xml         — reduce wind share-weight
        cm_04_nuclear.xml      — boost nuclear share-weight
-       cm_05_fossil_reduce.xml — reduce coal/gas/oil share-weights (riskiest for elec)
+       cm_05_fossils.xml — reduce coal/gas/oil share-weights (riskiest for elec)
        cm_06_bio.xml          — small biomass boost
        cm_07_ev.xml           — boost BEV share-weights for 4W + 2W/3W
 
@@ -138,7 +138,7 @@
 		<Value name = "cm_solar">../input/extra/cm/cm_02_solar.xml</Value>
 		<Value name = "cm_wind">../input/extra/cm/cm_03_wind.xml</Value>
 		<Value name = "cm_nuclear">../input/extra/cm/cm_04_nuclear.xml</Value>
-		<Value name = "cm_fossil">../input/extra/cm/cm_05_fossil_reduce.xml</Value>
+		<Value name = "cm_fossil">../input/extra/cm/cm_05_fossils.xml</Value>
 		<Value name = "cm_bio">../input/extra/cm/cm_06_bio.xml</Value>
 		<Value name = "cm_ev">../input/extra/cm/cm_07_ev.xml</Value>
 

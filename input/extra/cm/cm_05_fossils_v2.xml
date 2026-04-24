@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- cm_05_fossils_v2.xml
+     Current Measures v2: Pakistan fossil fuel share-weight alignment.
+
+     v2 iteration 2: 2025 share-weights reduced to match MESSAGE's 2025 energy mix.
+     2030+ values unchanged from v2-iter1 (CPEC/LNG committed capacity trajectory).
+
+     v2-iter1 had Coal=0.70, Gas=0.80, Oil=0.08 at 2025 — too high vs MSG.
+     v2-iter2: Coal=0.45, Gas=0.55, Oil=0.04 at 2025. Rest of years unchanged.
+
+     OLDER: IGNORE
+          v1 produced (PJ at 2050): Coal 479, Gas 548. MSG: Coal 1056, Gas 1116.
+          Gap: GCAM coal is 2.2x below MSG, gas is 2.0x below.
+
+          v2 raises fossil share-weights further to reflect:
+            - Coal: CPEC committed plants (Sahiwal 1.3 GW, Port Qasim 1.3 GW,
+              Hub 1.3 GW, Thar-I/II ~1.3 GW, Engro Thar 0.66 GW). Total
+              committed/operating ~5-6 GW. Pakistan Thar coal reserves are
+              vast (175 Gt); current policy favors domestic coal over imports.
+            - Gas: 15 GW installed CCGT/OCGT fleet. Two LNG terminals operational
+              (EETPL 600 mmcfd, PGPL 750 mmcfd). Third terminal planned.
+              Gas remains primary bridge fuel per NPCC/IGCEP.
+            - Oil: Existing dual-fuel capacity (~4 GW RFO) being retired but slowly.
+
+          v2 targets (PJ at 2050):
+            Coal: ~700-800 (midpoint between v1=479 and MSG=1056)
+            Gas:  ~750-850 (midpoint between v1=548 and MSG=1116)
+            Oil:  ~150-200 (keep modest)
+
+          Mechanism: Higher starting SW + gentler decline.
+-->
+<scenario>
+  <world>
+    <region name="Pakistan">
+      <supplysector name="electricity" nocreate="1">
+        <!-- COAL: v2-iter2: 2025 reduced to 0.45 to match MSG 2025 mix, 2030+ unchanged -->
+        <subsector name="coal" nocreate="1">
+          <share-weight year="2025">0.1</share-weight>
+          <share-weight year="2030">0.6</share-weight>
+          <share-weight year="2035">0.6</share-weight>
+          <share-weight year="2040">0.6</share-weight>
+          <share-weight year="2045">0.5</share-weight>
+          <share-weight fillout="1" year="2050">0.5</share-weight>
+        </subsector>
+        <!-- GAS: v2-iter2: 2025 reduced to 0.55 to match MSG 2025 mix, 2030+ unchanged -->
+        <subsector name="gas" nocreate="1">
+          <share-weight year="2025">0.20</share-weight>
+          <share-weight year="2030">0.20</share-weight>
+          <share-weight year="2035">0.20</share-weight>
+          <share-weight year="2040">0.20</share-weight>
+          <share-weight year="2045">0.20</share-weight>
+          <share-weight fillout="1" year="2050">0.20</share-weight>
+        </subsector>
+        <!-- REFINED LIQUIDS: v2-iter2: 2025 reduced to 0.04 to match MSG 2025 mix, 2030+ unchanged -->
+        <subsector name="refined liquids" nocreate="1">
+          <share-weight year="2025">0.005</share-weight>
+          <share-weight year="2030">0.04</share-weight>
+          <share-weight year="2035">0.04</share-weight>
+          <share-weight year="2040">0.04</share-weight>
+          <share-weight year="2045">0.04</share-weight>
+          <share-weight fillout="1" year="2050">0.04</share-weight>
+        </subsector>
+      </supplysector>
+    </region>
+  </world>
+</scenario>

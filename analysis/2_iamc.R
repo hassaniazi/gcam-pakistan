@@ -7,8 +7,10 @@
 
 # NOTE:change scenarios names, proj file
 
-scen <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev", "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg")
-prj.name <- "gcam_output_iamc_all.dat"
+scen <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev", "CurrentMeasuresV2", 
+          "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg",
+          "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2")
+prj.name <- "gcam_output_iamc_all_v2.dat"
 
 
 # ---- Bootstrap: find project root, load config, load gcamreport -------------
@@ -20,7 +22,7 @@ find_root <- function() {
   stop("Cannot detect project root (need input/ + exe/ dirs)")
 }
 ROOT <- find_root()
-source(file.path(ROOT, "analysis", "config.R"))
+source(file.path(ROOT, "analysis", "1_config.R"))
 
 # Load gcamreport package from local clone
 gcamreport_path <- file.path(ROOT, "analysis", "gcamreport")

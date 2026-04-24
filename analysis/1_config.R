@@ -1,8 +1,8 @@
-# analysis/config.R
+# analysis/1_config.R
 # Shared configuration for GCAM-Pakistan analysis scripts.
 # Source this file at the top of each script:
-#   source(file.path(ROOT, "analysis", "config.R"))
-# OR let config.R find ROOT itself (works if ROOT is not yet defined).
+#   source(file.path(ROOT, "analysis", "1_config.R"))
+# OR let 1_config.R find ROOT itself (works if ROOT is not yet defined).
 
 # ---- Find project root -------------------------------------------------------
 if (!exists("ROOT")) {
@@ -48,7 +48,7 @@ CO2_TO_MTC <- 12 / 44
 EJ_TO_GWA  <- 31.70979
 
 # ---- Standard paths (all relative to ROOT) ------------------------------------
-GCAM_IAMC_ALL   <- file.path(ROOT, "output", "gcam_output_iamc_all_standardized.xlsx")
+GCAM_IAMC_ALL   <- file.path(ROOT, "output", "gcam_output_iamc_all_v2_standardized.xlsx")
 MSG_FILE        <- file.path(ROOT, "analysis", "MESSAGEix-Pakistan_CM.xlsx")
 POLICY_DIR      <- file.path(ROOT, "input", "extra", "policy")
 CM_DIR          <- file.path(ROOT, "input", "extra", "cm")
@@ -59,9 +59,10 @@ if (!dir.exists(FIG_DIR)) dir.create(FIG_DIR, recursive = TRUE)
 if (!dir.exists(IAMC_FORMAT_DIR)) dir.create(IAMC_FORMAT_DIR, recursive = TRUE)
 
 # ---- Standard GCAM scenarios -------------------------------------------------
-GCAM_SCENARIOS <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev",
-                    "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg")
-GCAM_CM_SCENARIO <- "CurrentMeasuresRev"
+GCAM_SCENARIOS <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev", "CurrentMeasuresV2",
+                    "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg", 
+                    "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2")
+GCAM_CM_SCENARIO <- "CurrentMeasuresV2"
 
 # ---- NDC multipliers (from team scenario design) -----------------------------
 NDCU_2030_MULT <- 0.85
@@ -132,22 +133,60 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
   # Scenario palette — ordered by ambition level
   scenario_colors <- c(
     Reference          = "#bdbdbd",
-    CurrentMeasuresRev = "#c0392b",
+    CurrentMeasuresV2 = "#000000",
     NDCUncond_EnergyAg = "#e67e22",
     NDCCond_EnergyAg   = "#8e44ad",
     NetZero_EnergyAg   = "#27ae60",
-    MESSAGEix_CM       = "#2471a3"
+    NDCUncond_AllGHG_V2 = "#e67e22",
+    NDCCond_AllGHG_V2  = "#8e44ad",
+    NetZero_AllGHG_V2   = "#27ae60",
+    MESSAGEix_CM       = "#000000"
   )
 
   # Clean scenario labels for display
   scenario_labels <- c(
     Reference          = "Reference",
-    CurrentMeasuresRev = "Current Measures",
+    CurrentMeasuresV2 = "Current Measures",
     NDCUncond_EnergyAg = "NDC Unconditional",
     NDCCond_EnergyAg   = "NDC Conditional",
     NetZero_EnergyAg   = "Net Zero",
+    NDCCond_AllGHG_V2  = "NDC Conditional (All GHG)",
+    NDCUncond_AllGHG_V2 = "NDC Unconditional (All GHG)",
+    NetZero_AllGHG_V2   = "Net Zero (All GHG)",
     MESSAGEix_CM       = "MESSAGEix CM"
   )
+
+  # Scenario shapes for points (solid = CO2/EnergyAg, hollow = AllGHG variants)
+  scenario_shapes <- c(
+    Reference          = 16,  # solid circle
+    CurrentMeasuresV2 = 17,  # solid triangle
+    NDCUncond_EnergyAg = 15,  # solid square
+    NDCCond_EnergyAg   = 17,  # solid triangle
+    NetZero_EnergyAg   = 18,  # solid diamond
+    NDCUncond_AllGHG_V2 = 0,  # hollow square
+    NDCCond_AllGHG_V2  = 2,   # hollow triangle
+    NetZero_AllGHG_V2   = 5,  # hollow diamond
+    MESSAGEix_CM       = 4    # x
+  )
+
+  # Scenario linetypes (solid = CO2/EnergyAg, dashed = AllGHG variants)
+  scenario_linetypes <- c(
+    Reference          = "dotted",
+    CurrentMeasuresV2 = "solid",
+    NDCUncond_EnergyAg = "solid",
+    NDCCond_EnergyAg   = "solid",
+    NetZero_EnergyAg   = "solid",
+    NDCUncond_AllGHG_V2 = "dashed",
+    NDCCond_AllGHG_V2  = "dashed",
+    NetZero_AllGHG_V2   = "dashed",
+    MESSAGEix_CM       = "solid"
+  )
+
+  scens_to_plot <- c(GCAM_CM_SCENARIO, 
+                   "NDCUncond_EnergyAg", "NDCCond_EnergyAg", "NetZero_EnergyAg",
+                   "NDCUncond_AllGHG_V2", "NDCCond_AllGHG_V2", "NetZero_AllGHG_V2")
+
 }
 
-cat("config.R loaded. ROOT:", ROOT, "\n")
+
+cat("1_config.R loaded. ROOT:", ROOT, "\n")

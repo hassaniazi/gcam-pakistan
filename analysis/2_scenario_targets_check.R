@@ -12,7 +12,7 @@ find_root <- function() {
   stop("Cannot detect project root")
 }
 ROOT <- find_root()
-source(file.path(ROOT, "analysis", "config.R"))
+source(file.path(ROOT, "analysis", "1_config.R"))
 
 # ---- Config -----------------------------------------------------------------
 GCAM_IAMC_FILE <- "gcam_output_iamc_ref_cm_rev_standardized.xlsx"

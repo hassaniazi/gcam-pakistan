@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- pak_co2_constraint_netzero_v1_ts_decl.xml
      Time-series Net Zero (same as ts_const for NZ).
-     Generated 2026-04-17. -->
+     Generated 2026-04-23. -->
 <scenario>
     <world>
         <region name="Pakistan">
             <ghgpolicy name="CO2">
                 <market>Pakistan</market>
-                <constraint year="2030">63.053</constraint>
-                <constraint year="2035">56.190</constraint>
-                <constraint year="2040">45.210</constraint>
-                <constraint year="2045">27.466</constraint>
+                <constraint year="2030">60.262</constraint>
+                <constraint year="2035">52.965</constraint>
+                <constraint year="2040">42.347</constraint>
+                <constraint year="2045">25.681</constraint>
                 <constraint year="2050">0.000</constraint>
                 <constraint year="2055">0.000</constraint>
                 <constraint year="2060">0.000</constraint>

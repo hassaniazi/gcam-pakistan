@@ -115,7 +115,7 @@ Files inside ../input/extra/cm
 | cm_02_solar.xml | Boost subsector share-weight to 2.5 (2025-2050) | Low |
 | cm_03_wind.xml | Reduce subsector share-weight to 0.6 (then recover to 1.0 by 2035) | Low |
 | cm_04_nuclear.xml | Override baseline drop (1.0→0.075) with flat 1.5 | Medium |
-| cm_05_fossil_reduce.xml | Coal→0.6, Gas→0.72, Oil→0.18 share-weights | Highest |
+| cm_05_fossils.xml | Coal→0.6, Gas→0.72, Oil→0.18 share-weights | Highest |
 | cm_06_bio.xml | Small boost to 1.3 | Negligible |
 
 # Last fine tuning exercise (after v2 results)
@@ -213,3 +213,38 @@ Recommended XML changes (Section 6 table):
 | Type                     | 2025-26 | 2026-27 | 2027-28 | 2028-29 | 2029-30 | Total |
 |--------------------------|--------:|--------:|--------:|--------:|--------:|------:|
 | Public Charging Stations |     240 |     380 |     550 |     800 |   1,030 | 3,000 |
+
+---
+
+## All-GHG Policy Expansion (2026-04-22)
+
+### What & Why
+
+Pakistan's NDC applies to **all GHGs** (Kyoto gases), not just CO2. Previous constraint files targeted CO2 E&IP only (FFICT mode). We now generate parallel constraints on the full Kyoto basket (CO2 + CH4 + N2O + F-gases) using GCAM's `<ghgpolicy name="GHG">` mechanism with linked gas policies.
+
+### Four Coverage Modes
+
+| Mode | Policy target | Gases covered | AG gases priced? | Key files |
+|------|--------------|---------------|------------------|-----------|
+| FFICT | `CO2` market | E&IP CO2 only | N/A | `pak_co2_constraint_*` + `pak_co2luc_ffict.xml` |
+| UCT | `CO2` market | All CO2 (E&IP + AFOLU) | N/A | `pak_co2_constraint_*` + `pak_co2luc_uct.xml` |
+| All-GHG | `GHG` market | All Kyoto gases | Yes | `pak_ghg_constraint_*` + `pak_linked_ghg_policy.xml` |
+| GHG-Energy | `GHG` market | All Kyoto gases | No (count but not priced) | `pak_ghg_constraint_*` + `pak_linked_ghg_policy_energy.xml` |
+
+### GHG Baseline (CMRev, Mt CO2e/yr — Kyoto Gases)
+
+| Year | 2025 | 2030 | 2035 | 2040 | 2045 | 2050 |
+|------|------|------|------|------|------|------|
+| Kyoto Gases | 574.1 | 663.4 | 764.8 | 888.9 | 1037.7 | 1198.6 |
+
+### Key Finding
+
+Pakistan's Kyoto Gases are ~2.3× CO2 E&IP, dominated by agricultural CH4/N2O. Under all-GHG constraints, expect lower carbon prices than FFICT (cheap non-CO2 abatement available), and CO2 E&IP output will NOT equal NDC multiplier × CM — it will be higher because some abatement comes from non-CO2 gases.
+
+### New Files
+
+- `input/extra/policy/pak_ghg_constraint_{ndc_uncond,ndc_cond,netzero}_v1_ts_const.xml`
+- `input/extra/policy/pak_linked_ghg_policy.xml`
+- `exe/configuration_{ndc_uncond,ndc_cond,netzero}_ghg_v1_ts_const.xml`
+- Generator: `analysis/3_generate_emission_constraints_v1.R` (extended)
+- Docs: `analysis/docs/gcam_emissions_policy_mechanisms.md` (comprehensive rewrite)

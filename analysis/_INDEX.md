@@ -10,7 +10,7 @@
 | Deadline | April 30, 2026 |
 | GCAM version | 8.5 (v8.2 in gcamreport) |
 | Region | Pakistan (ID 22) |
-| Scenarios | Reference, CurrentMeasures, NDCUncond (×2), NDCCond (×2), NetZero (×2) = 8 total |
+| Scenarios | Reference, CurrentMeasures, NDCUncond (×3), NDCCond (×3), NetZero (×3) = 11 total |
 | Database | `output/database_basexdb` |
 
 ---
@@ -21,10 +21,10 @@
 
 | File | Description |
 |------|-------------|
-| [analysis/project_notes.md](analysis/project_notes.md) | Quick-reference: team info, scenario tracker, key numbers, pipeline, open questions |
+| [analysis/docs/project_notes.md](analysis/docs/project_notes.md) | Quick-reference: team info, scenario tracker, key numbers, pipeline, open questions |
 | [analysis/scenarios_lums.csv](analysis/scenarios_lums.csv) | Original scenario targets from MESSAGE team (read-only) |
 | [analysis/scenarios_lums_gcam.csv](analysis/scenarios_lums_gcam.csv) | Enriched version with GCAM Ref values, gap analysis, traceability columns |
-| [analysis/scenario_targets_check.R](analysis/scenario_targets_check.R) | R script: compares any IAMC output against scenarios_lums.csv targets. Multi-scenario, full traceability. |
+| [analysis/2_scenario_targets_check.R](analysis/2_scenario_targets_check.R) | R script: compares any IAMC output against scenarios_lums.csv targets. Multi-scenario, full traceability. |
 
 ### Scenario Implementation Files
 
@@ -38,11 +38,14 @@
 | [exe/configuration_ndc_cond_uct.xml](exe/configuration_ndc_cond_uct.xml) | NDCCond_EnergyAg: CM + tighter CO2 constraint (energy+agriculture) |
 | [exe/configuration_netzero_ffict.xml](exe/configuration_netzero_ffict.xml) | NetZero_EnergyOnly: CM + linear decline to 0 by 2050 (energy-only) |
 | [exe/configuration_netzero_uct.xml](exe/configuration_netzero_uct.xml) | NetZero_EnergyAg: CM + linear decline to 0 by 2050 (energy+agriculture) |
+| [exe/configuration_ndc_uncond_ghg_v1_ts_const.xml](exe/configuration_ndc_uncond_ghg_v1_ts_const.xml) | NDCUncond_AllGHG: CM + all-GHG constraint (multi-gas economy-wide) |
+| [exe/configuration_ndc_cond_ghg_v1_ts_const.xml](exe/configuration_ndc_cond_ghg_v1_ts_const.xml) | NDCCond_AllGHG: CM + tighter all-GHG constraint |
+| [exe/configuration_netzero_ghg_v1_ts_const.xml](exe/configuration_netzero_ghg_v1_ts_const.xml) | NetZero_AllGHG: CM + linear all-GHG decline to 0 by 2050 |
 | [input/extra/cm/cm_01_hydro.xml](input/extra/cm/cm_01_hydro.xml) | CM: Hydro fixedOutput increase to 0.1437 EJ (4.555 GWa target). **Safest.** |
 | [input/extra/cm/cm_02_solar.xml](input/extra/cm/cm_02_solar.xml) | CM: Solar subsector share-weight boost to 3.5 |
 | [input/extra/cm/cm_03_wind.xml](input/extra/cm/cm_03_wind.xml) | CM: Wind subsector share-weight reduce to 0.45 |
 | [input/extra/cm/cm_04_nuclear.xml](input/extra/cm/cm_04_nuclear.xml) | CM: Nuclear subsector share-weight boost to 2.5 |
-| [input/extra/cm/cm_05_fossil_reduce.xml](input/extra/cm/cm_05_fossil_reduce.xml) | CM: Coal 0.35 / Gas 0.55 / Oil 0.04 share-weights. **Riskiest.** |
+| [input/extra/cm/cm_05_fossils.xml](input/extra/cm/cm_05_fossils.xml) | CM: Coal 0.35 / Gas 0.55 / Oil 0.04 share-weights. **Riskiest.** |
 | [input/extra/cm/cm_06_bio.xml](input/extra/cm/cm_06_bio.xml) | CM: Biomass share-weight boost to 2.5 |
 | [input/extra/cm/cm_07_ev.xml](input/extra/cm/cm_07_ev.xml) | CM: BEV share-weight boost (4W + 2W/3W) |
 
@@ -55,13 +58,23 @@
 | [input/extra/policy/pak_co2_constraint_netzero.xml](input/extra/policy/pak_co2_constraint_netzero.xml) | Net Zero: linear decline from CM 2025 to 0 MTC at 2050 |
 | [input/extra/policy/pak_co2luc_ffict.xml](input/extra/policy/pak_co2luc_ffict.xml) | FFICT link: AFOLU excluded from policy (energy-only) |
 | [input/extra/policy/pak_co2luc_uct.xml](input/extra/policy/pak_co2luc_uct.xml) | UCT link: AFOLU faces price + counts in constraint (energy+ag) |
-| [docs/gcam_emissions_policy_mechanisms.md](docs/gcam_emissions_policy_mechanisms.md) | Reference doc: constraint vs fixedTax, FFICT vs UCT, units, solver notes |
+
+### All-GHG Emissions Policy Files
+
+| File | Description |
+|------|-------------|
+| [input/extra/policy/pak_ghg_constraint_ndc_uncond_v1_ts_const.xml](input/extra/policy/pak_ghg_constraint_ndc_uncond_v1_ts_const.xml) | NDC Uncond all-GHG: 0.85×CM@2030, 0.83×CM@2035+ (Mt CO2e) |
+| [input/extra/policy/pak_ghg_constraint_ndc_cond_v1_ts_const.xml](input/extra/policy/pak_ghg_constraint_ndc_cond_v1_ts_const.xml) | NDC Cond all-GHG: 0.50×CM (Mt CO2e) |
+| [input/extra/policy/pak_ghg_constraint_netzero_v1_ts_const.xml](input/extra/policy/pak_ghg_constraint_netzero_v1_ts_const.xml) | Net Zero all-GHG: linear to 0 (Mt CO2e) |
+| [input/extra/policy/pak_linked_ghg_policy.xml](input/extra/policy/pak_linked_ghg_policy.xml) | Links CO2, CH4, N2O, F-gases to GHG market (Pakistan-only, all gases priced) |
+| [input/extra/policy/pak_linked_ghg_policy_energy.xml](input/extra/policy/pak_linked_ghg_policy_energy.xml) | GHG-Energy variant: AG CH4/N2O count but NOT priced (energy-only instruments) |
+| [analysis/docs/gcam_emissions_policy_mechanisms_all.md](analysis/docs/gcam_emissions_policy_mechanisms_all.md) | Reference doc: constraint vs fixedTax, FFICT vs UCT vs All-GHG vs GHG-Energy, units, multi-gas mechanics, solver notes |
 
 ### IAMC Pipeline
 
 | File | Description |
 |------|-------------|
-| [analysis/query/iamc.R](analysis/query/iamc.R) | gcamreport wrapper: generates IAMC-format xlsx from GCAM database |
+| [analysis/2_iamc.R](analysis/2_iamc.R) | gcamreport wrapper: generates IAMC-format xlsx from GCAM database |
 | [analysis/query/iamc_format/](analysis/query/iamc_format/) | Output directory for IAMC standardized files |
 | [analysis/gcamreport/](analysis/gcamreport/) | Local clone of bc3LC/gcamreport (run from inside gcamreport.Rproj) |
 
@@ -69,7 +82,7 @@
 
 | File | Description |
 |------|-------------|
-| [.claude/plans/scenario-implementation.md](.claude/plans/scenario-implementation.md) | Full implementation plan: situation analysis, gaps, strategy, risk assessment |
+| [.claude/plans/1_scenario-implementation.md](.claude/plans/1_scenario-implementation.md) | Full implementation plan: situation analysis, gaps, strategy, risk assessment |
 
 ---
 
