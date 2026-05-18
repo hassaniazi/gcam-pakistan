@@ -7,10 +7,10 @@
 
 # NOTE:change scenarios names, proj file
 
-scen <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev", "CurrentMeasuresV2", 
-          "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg",
-          "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2")
-prj.name <- "gcam_output_iamc_all_v2.dat"
+scen <-  c("CurrentMeasuresRev", "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg", 
+            "CurrentMeasuresV2", "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2", 
+            "CurrentMeasures_V3limitBio", "NDCUncond_AllGHG_V3limitBio", "NDCCond_AllGHG_V3limitBio", "NetZero_AllGHG_V3limitBio")
+prj.name <- "gcam_output_iamc_all_v3_limitBio.dat"
 
 
 # ---- Bootstrap: find project root, load config, load gcamreport -------------

@@ -59,10 +59,10 @@ if (!dir.exists(FIG_DIR)) dir.create(FIG_DIR, recursive = TRUE)
 if (!dir.exists(IAMC_FORMAT_DIR)) dir.create(IAMC_FORMAT_DIR, recursive = TRUE)
 
 # ---- Standard GCAM scenarios -------------------------------------------------
-GCAM_SCENARIOS <- c("Reference", "CurrentMeasures", "CurrentMeasuresRev", "CurrentMeasuresV2",
-                    "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg", 
-                    "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2")
-GCAM_CM_SCENARIO <- "CurrentMeasuresV2"
+GCAM_SCENARIOS <- c("CurrentMeasuresRev", "NDCCond_EnergyAg", "NDCUncond_EnergyAg", "NetZero_EnergyAg", 
+                    "CurrentMeasuresV2", "NDCCond_AllGHG_V2", "NDCUncond_AllGHG_V2", "NetZero_AllGHG_V2", 
+                    "CurrentMeasures_V3limitBio", "NDCUncond_AllGHG_V3limitBio", "NDCCond_AllGHG_V3limitBio", "NetZero_AllGHG_V3limitBio")
+GCAM_CM_SCENARIO <- "CurrentMeasures_V3limitBio"
 
 # ---- NDC multipliers (from team scenario design) -----------------------------
 NDCU_2030_MULT <- 0.85
@@ -184,7 +184,8 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
 
   scens_to_plot <- c(GCAM_CM_SCENARIO, 
                    "NDCUncond_EnergyAg", "NDCCond_EnergyAg", "NetZero_EnergyAg",
-                   "NDCUncond_AllGHG_V2", "NDCCond_AllGHG_V2", "NetZero_AllGHG_V2")
+                   "NDCUncond_AllGHG_V2", "NDCCond_AllGHG_V2", "NetZero_AllGHG_V2",
+                   "CurrentMeasures_V3limitBio", "NDCUncond_AllGHG_V3limitBio", "NDCCond_AllGHG_V3limitBio", "NetZero_AllGHG_V3limitBio")
 
 }
 

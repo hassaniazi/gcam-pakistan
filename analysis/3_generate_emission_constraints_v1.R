@@ -982,11 +982,129 @@ cat("    12 CO2-only configs (configuration_*_{ffict,uct}_v2_{ts_const,ts_decl}.
 cat("    3 GHG configs (configuration_*_ghg_v2_ts_const.xml)\n")
 cat("    3 GHG-Energy configs (configuration_*_ghg_energy_v2_ts_const.xml)\n")
 cat("  Traceability: 3 CSVs (original, extended, extended+GHG)\n")
+
+# ======================================================================
+# V3limitBio CONFIGS (Pakistan-specific biomass/CCS guardrails)
+# ======================================================================
+# Creates V3limitBio configs from V2 GHG configs by:
+#   1. Replacing global guardrails with Pakistan-specific policy files
+#   2. CM/UNCOND: minimal guardrails (neg_emiss_budget + pak_no_offshore_ccs)
+#   3. COND/NETZERO: full guardrails (+pak_ccs_high_cost, pak_beccs_restrict,
+#      pak_biomass_import_ban)
+#   4. Stop year: 2060 (save space)
+#   5. Scenario name suffix: V3limitBio
+
+cat("\n")
+cat("======================================================================\n")
+cat("  V3limitBio CONFIGS (Pakistan-specific biomass/CCS guardrails)\n")
+cat("======================================================================\n")
+
+# V3limitBio guardrail lines to insert after bio_externality
+v3_guardrail_minimal <- c(
+  '',
+  '\t\t<!-- ============================================================ -->',
+  '\t\t<!-- V3limitBio: Pakistan-specific biomass/CCS guardrails          -->',
+  '\t\t<!-- Minimal set (CM/UNCOND): neg emissions budget + no offshore  -->',
+  '\t\t<!-- ============================================================ -->',
+  '\t\t<Value name = "neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget.xml</Value>',
+  '\t\t<Value name = "pak_no_offshore_ccs">../input/extra/policy/pak_no_offshore_ccs.xml</Value>'
+)
+
+v3_guardrail_full <- c(
+  '',
+  '\t\t<!-- ============================================================ -->',
+  '\t\t<!-- V3limitBio: Pakistan-specific biomass/CCS guardrails (FULL)   -->',
+  '\t\t<!-- 1. Neg emissions budget (global, 1% GDP cap)                -->',
+  '\t\t<!-- 2. Pak-only: no offshore CCS, BECCS disabled, import ban    -->',
+  '\t\t<!-- 3. Pak-only: CCS storage 10x base cost                     -->',
+  '\t\t<!-- If solver fails: comment out pak_ccs_high_cost first,       -->',
+  '\t\t<!--   then pak_biomass_import_ban, then pak_beccs_restrict.     -->',
+  '\t\t<!-- ============================================================ -->',
+  '\t\t<Value name = "neg_emiss_budget">../input/gcamdata/xml/negative_emissions_budget.xml</Value>',
+  '\t\t<Value name = "pak_no_offshore_ccs">../input/extra/policy/pak_no_offshore_ccs.xml</Value>',
+  '\t\t<Value name = "pak_ccs_high_cost">../input/extra/policy/pak_ccs_high_cost.xml</Value>',
+  '\t\t<Value name = "pak_beccs_restrict">../input/extra/policy/pak_beccs_restrict.xml</Value>',
+  '\t\t<Value name = "pak_biomass_import_ban">../input/extra/policy/pak_biomass_import_ban.xml</Value>'
+)
+
+v3_scenarios <- list(
+  list(base = "ndc_uncond", label = "NDCUncond_AllGHG", guardrails = "minimal"),
+  list(base = "ndc_cond",   label = "NDCCond_AllGHG",   guardrails = "full"),
+  list(base = "netzero",    label = "NetZero_AllGHG",    guardrails = "full")
+)
+
+for (scen in v3_scenarios) {
+  # Template: V2 GHG config
+  src_file <- file.path(config_dir, sprintf("configuration_%s_ghg_v2_ts_const.xml", scen$base))
+  if (!file.exists(src_file)) {
+    cat("[!] SKIP (missing template): ", src_file, "\n"); next
+  }
+  src_lines <- readLines(src_file)
+
+  new_lines <- src_lines
+
+  # Update scenario name to V3limitBio
+  v3_label <- paste0(scen$label, "_V3limitBio")
+  old_scen_pattern <- '"scenarioName">[^<]+'
+  new_lines <- gsub(old_scen_pattern, sprintf('"scenarioName">%s', v3_label), new_lines)
+
+  # Set stop year to 2060
+  new_lines <- gsub('"stop-year">[^<]+', '"stop-year">2060', new_lines)
+
+  # Insert guardrails after bio_externality line
+  guardrail_lines <- if (scen$guardrails == "minimal") v3_guardrail_minimal else v3_guardrail_full
+  bio_ext_idx <- grep("bio_externality", new_lines)
+  if (length(bio_ext_idx) > 0) {
+    bio_ext_idx <- bio_ext_idx[1]
+    new_lines <- c(new_lines[1:bio_ext_idx], guardrail_lines, new_lines[(bio_ext_idx+1):length(new_lines)])
+  }
+
+  # Update header
+  old_header <- sprintf("configuration_%s_ghg_v2_ts_const.xml", scen$base)
+  new_header <- sprintf("configuration_%s_ghg_v3_ts_const.xml", scen$base)
+  new_lines <- gsub(old_header, new_header, new_lines, fixed = TRUE)
+
+  dst_file <- file.path(config_dir, new_header)
+  writeLines(new_lines, dst_file)
+  cat("    -> Created: ", basename(dst_file), "\n")
+}
+
+# Also create V3limitBio CM config from V2 CM config
+cm_src <- file.path(config_dir, "configuration_cm_v2.xml")
+if (file.exists(cm_src)) {
+  cm_lines <- readLines(cm_src)
+  cm_lines <- gsub('"scenarioName">[^<]+', '"scenarioName">CurrentMeasures_V3limitBio', cm_lines)
+  cm_lines <- gsub('"stop-year">[^<]+', '"stop-year">2060', cm_lines)
+  # Insert minimal guardrails after bio_externality
+  bio_ext_idx <- grep("bio_externality", cm_lines)
+  if (length(bio_ext_idx) > 0) {
+    bio_ext_idx <- bio_ext_idx[1]
+    cm_lines <- c(cm_lines[1:bio_ext_idx], v3_guardrail_minimal, cm_lines[(bio_ext_idx+1):length(cm_lines)])
+  }
+  cm_lines <- gsub("configuration_cm_v2.xml", "configuration_cm_v3.xml", cm_lines, fixed = TRUE)
+  writeLines(cm_lines, file.path(config_dir, "configuration_cm_v3.xml"))
+  cat("    -> Created: configuration_cm_v3.xml\n")
+}
+
+cat("\n== V3limitBio Summary ==\n")
+cat("  4 V3limitBio configs created:\n")
+cat("    configuration_cm_v3.xml                         (minimal guardrails)\n")
+cat("    configuration_ndc_uncond_ghg_v3_ts_const.xml    (minimal guardrails)\n")
+cat("    configuration_ndc_cond_ghg_v3_ts_const.xml      (full guardrails)\n")
+cat("    configuration_netzero_ghg_v3_ts_const.xml       (full guardrails)\n")
+cat("\n")
+cat("  Run order:\n")
+cat("    ./gcam.exe -C configuration_cm_v3.xml\n")
+cat("    ./gcam.exe -C configuration_ndc_uncond_ghg_v3_ts_const.xml\n")
+cat("    ./gcam.exe -C configuration_ndc_cond_ghg_v3_ts_const.xml\n")
+cat("    ./gcam.exe -C configuration_netzero_ghg_v3_ts_const.xml\n")
+
 cat("\n")
 cat("  Run order (easiest -> hardest for solver):\n")
 cat("    CO2-only FFICT:   ./gcam.exe -C configuration_<scen>_ffict_v1_ts_const.xml\n")
 cat("    GHG-Energy:       ./gcam.exe -C configuration_<scen>_ghg_energy_v1_ts_const.xml\n")
 cat("    All-GHG:          ./gcam.exe -C configuration_<scen>_ghg_v1_ts_const.xml\n")
+cat("    V3limitBio:       ./gcam.exe -C configuration_<scen>_ghg_v3_ts_const.xml\n")
 cat("    (For v2 CM: replace v1 with v2 in the above commands)\n")
 cat("  Then: Rscript analysis/query/iamc.R\n")
 cat("\nDone.\n")
