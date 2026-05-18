@@ -27,17 +27,17 @@
                 <constraint year="2035">39.842</constraint>
                 <constraint year="2040">26.562</constraint>
                 <constraint year="2045">13.281</constraint>
-                <constraint year="2050">0</constraint>
-                <constraint year="2055">0</constraint>
-                <constraint year="2060">0</constraint>
-                <constraint year="2065">0</constraint>
-                <constraint year="2070">0</constraint>
-                <constraint year="2075">0</constraint>
-                <constraint year="2080">0</constraint>
-                <constraint year="2085">0</constraint>
-                <constraint year="2090">0</constraint>
-                <constraint year="2095">0</constraint>
-                <constraint year="2100">0</constraint>
+                <constraint year="2050">0.01</constraint>
+                <constraint year="2055">0.01</constraint>
+                <constraint year="2060">0.01</constraint>
+                <constraint year="2065">0.01</constraint>
+                <constraint year="2070">0.01</constraint>
+                <constraint year="2075">0.01</constraint>
+                <constraint year="2080">0.01</constraint>
+                <constraint year="2085">0.01</constraint>
+                <constraint year="2090">0.01</constraint>
+                <constraint year="2095">0.01</constraint>
+                <constraint year="2100">0.01</constraint>
             </ghgpolicy>
         </region>
     </world>
