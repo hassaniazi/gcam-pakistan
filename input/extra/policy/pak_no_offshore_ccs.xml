@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_no_offshore_ccs.xml
+     Pakistan-only: Disable offshore CCS.
+     Sets offshore carbon-storage subsector share-weight = 0 for Pakistan only.
+     Unlike the global no_offshore_ccs.xml (which modifies all 32 regions via
+     global-technology-database), this only affects Pakistan to avoid solver
+     complexity in other regions.
+
+     Pakistan has no offshore CCS infrastructure or plans.
+     Generated 2026-05-17.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <supplysector name="carbon-storage" nocreate="1">
+                <subsector name="offshore carbon-storage" nocreate="1">
+                    <share-weight fillout="1" year="1975">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>

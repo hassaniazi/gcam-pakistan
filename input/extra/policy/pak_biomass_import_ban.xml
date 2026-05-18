@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_biomass_import_ban.xml
+     Pakistan-only: Severely restrict biomass imports.
+     Sets "imported biomass" subsector share-weight = 0.001 for Pakistan,
+     allowing a tiny trickle of imports while keeping biomass overwhelmingly domestic.
+
+     Pakistan's domestic biomass potential is ~0.34-0.62 EJ (World Bank 2016
+     technical potential), far below the 7-8 EJ the model deploys in V2/V3
+     net-zero scenarios. At SW=0.001 (vs original 0.1-0.5), imports are ~100-500x
+     disfavored, limiting them to negligible levels while maintaining solvability.
+
+     This file overrides the default bio_trade.xml share-weights:
+       Original: 0.1 (1975-2025) -> 0.18-0.50 (2030-2100)
+       Override: 0.0000001 (all periods)
+
+     Generated 2026-05-17. Updated: SW 0 -> 0.0000001 for solvability.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+            <supplysector name="total biomass" nocreate="1">
+                <subsector name="imported biomass" nocreate="1">
+                    <share-weight year="1975">0.0000001</share-weight>
+                    <share-weight year="1990">0.0000001</share-weight>
+                    <share-weight year="2005">0.0000001</share-weight>
+                    <share-weight year="2010">0.0000001</share-weight>
+                    <share-weight year="2015">0.0000001</share-weight>
+                    <share-weight year="2021">0.0000001</share-weight>
+                    <share-weight year="2025">0.0000001</share-weight>
+                    <share-weight year="2030">0.0000001</share-weight>
+                    <share-weight year="2035">0.0000001</share-weight>
+                    <share-weight year="2040">0.0000001</share-weight>
+                    <share-weight year="2045">0.0000001</share-weight>
+                    <share-weight year="2050">0.0000001</share-weight>
+                    <share-weight year="2055">0.0000001</share-weight>
+                    <share-weight year="2060">0.0000001</share-weight>
+                    <share-weight year="2065">0.0000001</share-weight>
+                    <share-weight year="2070">0.0000001</share-weight>
+                    <share-weight year="2075">0.0000001</share-weight>
+                    <share-weight year="2080">0.0000001</share-weight>
+                    <share-weight year="2085">0.0000001</share-weight>
+                    <share-weight year="2090">0.0000001</share-weight>
+                    <share-weight year="2095">0.0000001</share-weight>
+                    <share-weight year="2100">0.0000001</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>

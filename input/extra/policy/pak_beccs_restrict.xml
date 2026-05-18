@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- pak_beccs_restrict.xml
+     Pakistan-only: Heavily restrict all BECCS (bioenergy with CCS) technologies.
+     Sets share-weight = 0.0000001 (vs default ~1.0) for biomass CCS technologies
+     in electricity, refining, and hydrogen sectors for Pakistan only.
+
+     At 0.0000001 share-weight, BECCS technologies exist but are ~10000x disfavored
+     in logit competition. Combined with 10x CCS storage costs (pak_ccs_high_cost),
+     actual BECCS output is negligible but non-zero (solver can use as safety valve).
+
+     Technologies restricted:
+       Electricity: biomass (conv CCS), biomass (IGCC CCS)
+       Refining:    cellulosic ethanol CCS level 1/2, FT biofuels CCS level 1/2
+       Hydrogen:    biomass to H2 CCS
+
+     Generated 2026-05-17. Updated: SW 0 -> 0.0000001 for solvability.
+-->
+<scenario>
+    <world>
+        <region name="Pakistan">
+
+            <!-- === Electricity sector: disable biomass CCS === -->
+            <supplysector name="electricity" nocreate="1">
+                <subsector name="biomass" nocreate="1">
+                    <stub-technology name="biomass (conv CCS)">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                    <stub-technology name="biomass (IGCC CCS)">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+
+            <!-- === Refining sector: disable biofuel CCS === -->
+            <supplysector name="refining" nocreate="1">
+                <subsector name="biomass liquids" nocreate="1">
+                    <stub-technology name="cellulosic ethanol CCS level 1">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                    <stub-technology name="cellulosic ethanol CCS level 2">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                    <stub-technology name="FT biofuels CCS level 1">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                    <stub-technology name="FT biofuels CCS level 2">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+
+            <!-- === Hydrogen sector: disable biomass-to-H2 CCS === -->
+            <supplysector name="H2 central production" nocreate="1">
+                <subsector name="biomass" nocreate="1">
+                    <stub-technology name="biomass to H2 CCS">
+                        <period year="2021"><share-weight>0.0000001</share-weight></period>
+                        <period year="2025"><share-weight>0.0000001</share-weight></period>
+                        <period year="2030"><share-weight>0.0000001</share-weight></period>
+                        <period year="2035"><share-weight>0.0000001</share-weight></period>
+                        <period year="2040"><share-weight>0.0000001</share-weight></period>
+                        <period year="2045"><share-weight>0.0000001</share-weight></period>
+                        <period year="2050"><share-weight>0.0000001</share-weight></period>
+                        <period year="2055"><share-weight>0.0000001</share-weight></period>
+                        <period year="2060"><share-weight>0.0000001</share-weight></period>
+                        <period year="2065"><share-weight>0.0000001</share-weight></period>
+                        <period year="2070"><share-weight>0.0000001</share-weight></period>
+                        <period year="2075"><share-weight>0.0000001</share-weight></period>
+                        <period year="2080"><share-weight>0.0000001</share-weight></period>
+                        <period year="2085"><share-weight>0.0000001</share-weight></period>
+                        <period year="2090"><share-weight>0.0000001</share-weight></period>
+                        <period year="2095"><share-weight>0.0000001</share-weight></period>
+                        <period year="2100"><share-weight>0.0000001</share-weight></period>
+                    </stub-technology>
+                </subsector>
+            </supplysector>
+
+        </region>
+    </world>
+</scenario>
